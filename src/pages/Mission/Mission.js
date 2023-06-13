@@ -21,15 +21,18 @@ import Footer from "./Components/Footer";
 import ParagraphText from "./Components/ParagraphText";
 import { DontationText } from "./utils";
 import StateDisclosure from "./Components/StateDisclosure";
+import { Box, CircularProgress } from "@mui/material";
 
 export default function Mission() {
+  const classes = useStyles();
   const { id } = useParams();
-  console.log(id)
+  console.log(id);
 
   const [missionData, setMissionData] = useState();
   const [missionEvent, setMissionEvent] = useState([]);
   const [eventImages, setEventImages] = useState([]);
   const [missionPrayer, setMissionPrayer] = useState([]);
+  const [StateDisclosure, setStateDiscloure] = useState([]);
 
   const getCharityGraph = (charityName) => {
     const data = `Financial info and charitable purpose, programs, and activities is either above, or can be obtained by contacting ${charityName}, and or as stated below.\n\nDonations go direct to ${charityName} via PayPal preferenced for missionary or minister (worker’s role and budget with charity). SeedForMe does not receive donation money or fees from PayPal. Preferencing support for worker is secondary to gifts use by the charity. Worker’s mission or ministry is to be conducted under direction of the charity and its board approves worker’s budget`;
@@ -48,6 +51,7 @@ export default function Mission() {
         setMissionEvent(data.data.mission_events);
         setEventImages(data.data.gallery);
         setMissionPrayer(data.data.mission_prayers);
+        setStateDiscloure(data.data.state_disclosure);
       } catch (error) {
         console.error("Error fetching mission data:", error);
       }
@@ -60,8 +64,6 @@ export default function Mission() {
     console.log("mission event", missionEvent);
   }, [missionEvent]);
 
-  const paragraphText =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et finibus mauris. Curabitur hendrerit metus sit amet ligula convallis, at luctus dolor ultrices. Sed nec erat a nulla condimentum dictum a non magna. Sed nec volutpat mauris. Sed eleifend consectetur justo, non consectetur sem dictum ut. In laoreet magna in pharetra aliquet. Nulla sed turpis lectus. Nullam egestas, erat eu commodo lacinia, sem nibh luctus mi, et venenatis arcu justo et est. Sed sollicitudin lectus eu enim congue, id condimentum risus gravida. Duis id vestibulum urna. Donec feugiat magna in gravida fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et finibus mauris. Curabitur hendrerit metus sit amet ligula convallis, at luctus dolor ultrices. Sed nec erat a nulla condimentum dictum a non magna. Sed nec volutpat mauris. Sed eleifend consectetur justo, non consectetur sem dictum ut. In laoreet magna in pharetra aliquet. Nulla sed turpis lectus. Nullam egestas, erat eu commodo lacinia, sem nibh luctus mi, et venenatis arcu justo et est. Sed sollicitudin lectus eu enim congue, id condimentum risus gravida. Duis id vestibulum urna. Donec feugiat magna in gravida fermentum.";
   const charityText = getCharityGraph(missionData?.charity?.name);
   return (
     <>
@@ -74,7 +76,7 @@ export default function Mission() {
             received_amount={missionData.mission.received_amount}
             goal_amount={missionData.mission.goal_amount}
           />
-          <div style={{ paddingBottom: "50px" }}>
+          <div style={{ paddingBottom: "30px", marginTop: 20 }}>
             <Paragraph
               text={missionData.mission.mission_details}
               lineLimit={10}
@@ -89,26 +91,30 @@ export default function Mission() {
             BusinessLogo={missionData.user.business_logo}
             ProfilePicture={missionData.user.profile_picture}
             imageSrc={profileImg}
-          ></ProfileContainer>
+          />
           <div style={{ paddingBottom: "50px", marginTop: "16px" }}>
-            <Paragraph text={paragraphText} lineLimit={3}></Paragraph>
+            <Paragraph
+              text={missionData.user.about_us}
+              lineLimit={4}
+            ></Paragraph>
           </div>
           {missionEvent.length > 0 && (
             <>
-              {missionEvent.map((mission, index) => (
-                <EventComponent
-                  imageUrl={profileImg}
-                  missionImage={mission.banner_picture}
-                  eventType={mission.type}
-                  eventName={mission.title}
-                  eventDate={mission.event_date}
-                  eventStartTime={mission.start_time}
-                  eventEndTime={mission.end_time}
-                />
-              ))}
+              {missionEvent.map((mission, index) =>
+                mission.is_active == true ? (
+                  <EventComponent
+                    imageUrl={mission.banner_picture}
+                    missionImage={mission.banner_picture}
+                    eventType={mission.type}
+                    eventName={mission.title}
+                    eventDate={mission.event_date}
+                    eventStartTime={mission.start_time}
+                    eventEndTime={mission.end_time}
+                  />
+                ) : null
+              )}
             </>
           )}
-
           {eventImages.length > 0 && (
             <>
               <CharityImages imageUrls={eventImages} />
@@ -118,7 +124,11 @@ export default function Mission() {
           {!missionPrayer.length <= 0 && (
             <>
               {missionPrayer.map((mission, index) => (
-                <RequestPrayer index={index} Prayer={mission.prayer_text} />
+                <>
+                  {mission.prayer_text !== null ? (
+                    <RequestPrayer index={index} Prayer={mission.prayer_text} />
+                  ) : null}
+                </>
               ))}
             </>
           )}
@@ -137,7 +147,9 @@ export default function Mission() {
             website={missionData.charity.website}
             taxEIN={missionData.charity.irs_tax}
           />
-          {/* <StateDisclosure disclosure={missionData.state_disclosure[0]} /> */}
+          {StateDisclosure.length > 0 && (
+            <StateDisclosure disclosure={missionData.state_disclosure[0]} />
+          )}
 
           <ParagraphText text={charityText} isUppercase={false}></ParagraphText>
 
@@ -148,11 +160,24 @@ export default function Mission() {
           <Footer />
         </div>
       )}
-      {!missionData &&(
-        <div>heko</div>
-      )
-
-      }
+      {!missionData && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+        >
+          <CircularProgress className={classes.progress} />
+        </div>
+      )}
     </>
   );
 }
+
+const useStyles = makeStyles({
+  progress: {
+    color: "#EDBE49 !important",
+  },
+});

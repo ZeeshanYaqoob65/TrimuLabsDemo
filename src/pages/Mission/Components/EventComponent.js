@@ -2,11 +2,12 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import youtube from "../../../assests/images/youtube_img.png";
 import zoomImg from "../../../assests/images/zoom_img.png";
+import { BASE_URL } from "../utils";
 
 const useStyles = makeStyles({
   container: {
     display: "flex",
-  
+
     background: "#F1F1F3",
   },
   image: {
@@ -24,27 +25,25 @@ const useStyles = makeStyles({
   eventName: {
     fontSize: "16px",
     fontWeight: 700,
-    marginBottom: "4px",
-    lineHeight:"20px",
-    color:'#000000',
-    textTransform:"uppercase"
+    marginBottom: "20px",
+    lineHeight: "20px",
+    color: "#000000",
   },
   eventDate: {
     fontSize: "16px",
-    fontWeight:500,
-    lineHeight:"20px",
-  
+    fontWeight: 500,
+    lineHeight: "20px",
   },
   eventTime: {
     fontSize: "16px",
     marginBottom: "8px",
-    lineHeight:"20px",
+    lineHeight: "20px",
   },
   liveButton: {
     fontSize: "20px",
     fontWeight: 700,
-    height:"45px",
-    width:"100%",
+    height: "45px",
+    width: "100%",
     color: "#FFFF",
     border: "none",
     borderRadius: "10px",
@@ -61,9 +60,9 @@ const useStyles = makeStyles({
     position: "relative",
   },
   eventDetails: {
-    display:'flex',
-    flexDirection:"column",
-    justifyContent:"space-between",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
     padding: "14px 8px 11px 16px",
   },
 });
@@ -75,33 +74,37 @@ const EventComponent = ({
   eventDate,
   eventStartTime,
   eventEndTime,
-  missionImage
+  missionImage,
 }) => {
   const classes = useStyles();
-
+  const imgSrc = `${BASE_URL}${imageUrl}`;
   const currentDate = new Date();
   const formattedCurrentDate = currentDate.toISOString().split("T")[0];
 
-// event date time 
-const dateTime = new Date(eventDate);
-const formatter = new Intl.DateTimeFormat('en-US', { weekday: 'long', month: '2-digit', day: '2-digit', year: 'numeric' });
-const formattedDate = formatter.format(dateTime);
+  // event date time
+  const dateTime = new Date(eventDate);
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    month: "2-digit",
+    day: "2-digit",
+    year: "numeric",
+  });
+  const formattedDate = formatter.format(dateTime);
 
+  //event start time
 
-//event start time 
+  const endTime = new Date(eventEndTime);
+  console.log(eventEndTime);
+  const options = { hour: "numeric", minute: "2-digit", hour12: true };
+  const EndTime = endTime.toLocaleTimeString("en-US", options);
 
-const endTime = new Date(eventEndTime);
-console.log(eventEndTime)
-const options = { hour: 'numeric', minute: '2-digit', hour12: true };
-const EndTime = endTime.toLocaleTimeString('en-US', options);
+  console.log(EndTime);
 
-console.log(EndTime);
+  const STARTtiME = new Date(eventStartTime);
+  const option = { hour: "numeric", minute: "2-digit", hour12: true };
+  const STARTTIME = STARTtiME.toLocaleTimeString("en-US", option);
 
-const STARTtiME = new Date(eventStartTime);
-const option = { hour: 'numeric', minute: '2-digit', hour12: true };
-const STARTTIME = STARTtiME.toLocaleTimeString('en-US', option);
-
-console.log(STARTTIME);
+  console.log(STARTTIME);
 
   const isLiveEvent =
     eventDate === formattedCurrentDate &&
@@ -121,15 +124,16 @@ console.log(STARTTIME);
   return (
     <div className={classes.container}>
       <div className={classes.background}>
-        <img src={imageUrl} alt="Event Image" className={classes.image} />
+        <img src={imgSrc} alt="Event Image" className={classes.image} />
         <div className={classes.renderIcon}>{renderIcon()}</div>
       </div>
       <div className={classes.eventDetails}>
-        <div className={classes.eventName}>{eventName}</div>
-        <div className={classes.eventDate}>{formattedDate}</div>
-        <div
-          className={classes.eventTime}
-        >{`${STARTTIME} - ${EndTime}`}</div>
+        <div>
+          <div className={classes.eventName}>{eventName}</div>
+          <div className={classes.eventDate}>{formattedDate}</div>
+          <div className={classes.eventTime}>{`${STARTTIME} - ${EndTime}`}</div>
+        </div>
+
         {isLiveEvent && (
           <button className={classes.liveButton}>LIVE ONLINE</button>
         )}

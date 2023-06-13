@@ -12,13 +12,15 @@ const useStyles = makeStyles({
     "-webkit-box-orient": "vertical",
   },
   readMoreButton: {
-    fontSize: "16px",
+    fontSize: "14px",
     color: "#48C7F4",
+
   },
   ButtonContainer: {
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
+    marginRight:"20px"
   },
   icon: {
     marginTop: "5px",
@@ -27,7 +29,8 @@ const useStyles = makeStyles({
     height: "5px",
   },
   ParagraphStyle: {
-    padding: "20px 20px 10px 20px",
+    padding: "0px 20px 0px 20px",
+    textAlign:"justify"
   },
 });
 

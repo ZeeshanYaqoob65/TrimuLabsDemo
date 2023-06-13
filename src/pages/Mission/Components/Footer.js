@@ -5,18 +5,21 @@ import footer from "../../../assests/images/seed_for_me_white.png";
 
 const useStyles = makeStyles({
   footer: {
+    marginTop:"20px",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
     textAlign: "center",
-    padding: "23px 30px 29px 30px",
+    padding:'10px',
+  
     backgroundColor: "#6D6E70",
+    minHeight:188,
+    height:"100%"
   },
   image: {
-    width: "158px",
-    height: "29px",
-    marginBottom: "16px",
+    width: "230px",
+    height: "100%",
   },
   link: {
     fontFamily: "Inter",
@@ -36,6 +39,12 @@ const useStyles = makeStyles({
     textTransform: "uppercase",
     opacity: 0.7,
   },
+  footerContent: {
+    display: "flex",
+    flexDirection: "column",
+    
+    alignItems: "center",
+  },
 });
 
 const Footer = () => {
@@ -43,20 +52,23 @@ const Footer = () => {
 
   return (
     <footer className={classes.footer}>
-      <div className={classes.footerContent}>
+     
         <div>
           <img src={footer} alt="Footer Image" className={classes.image} />
         </div>
-
-        <Link to="/terms-and-conditions" className={classes.link}>
-          Terms and Conditions
-        </Link>
-        <p className={classes.text}>
-          © Copyright & SM Service Mark SeedforMe. All rights expressly
-          reserved. Nothing may be reproduced without express written permission
-          of SeedforMe. Powered by The Holy Spirit.
-        </p>
-      </div>
+        <div>
+          <Link to="/terms-and-conditions" className={classes.link}>
+            Terms and Conditions
+          </Link>
+        </div>
+        <div>
+          <p className={classes.text}>
+            © Copyright & SM Service Mark SeedforMe. All rights expressly
+            reserved. Nothing may be reproduced without express written
+            permission of SeedforMe. Powered by The Holy Spirit.
+          </p>
+        </div>
+     
     </footer>
   );
 };

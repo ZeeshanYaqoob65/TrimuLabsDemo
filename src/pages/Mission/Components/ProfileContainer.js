@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import sms from "../../../assests/images/sms_yellow.png";
 import { BASE_URL } from "../utils";
+import AlterImg from "../../../assests/images/image_placeholder_small.png";
 const useStyles = makeStyles({
   container: {
     display: "flex",
@@ -83,11 +84,11 @@ const ProfileContainer = ({
       console.log("error", error);
     }
   };
-  const imgSrc = `${BASE_URL}${ProfilePicture}`;
+  const imgSrc = ProfilePicture !== null ?  `${BASE_URL}${ProfilePicture}` : AlterImg;
 
   return (
     <div className={classes.container}>
-      <img src={imgSrc} alt="Profile" className={classes.image} />
+      <img src={imgSrc} alt={AlterImg} className={classes.image}  />
       <div className={classes.content}>
         <div className={classes.name}>{name}</div>
         <div className={classes.address}>

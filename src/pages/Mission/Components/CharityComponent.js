@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { BASE_URL } from "../utils";
+import AlterImg from "../../../assests/images/image_placeholder_small.png";
 
 const useStyles = makeStyles({
   container: {
@@ -47,12 +48,14 @@ const CharityComponent = ({
   taxEIN,
 }) => {
   const classes = useStyles();
+  const showImg = imageUrl !==null ?  `${BASE_URL}${imageUrl} ` : AlterImg;
+  
 
   return (
     <div className={classes.container}>
       <img
-        src={`${BASE_URL}${imageUrl} `}
-        alt="Charity"
+        src={showImg}
+        alt={AlterImg}
         className={classes.image}
       />
       <div className={classes.charityName}>{name}</div>

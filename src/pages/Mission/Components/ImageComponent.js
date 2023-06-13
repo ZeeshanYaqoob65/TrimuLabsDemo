@@ -18,13 +18,16 @@ const useStyles = makeStyles({
     paddingBottom: "100%", // Set the height based on width as a percentage
     position: "relative",
     maxHeight: "800px",
+    fontWeight:"500px !important"
   },
   shareButton: {
     position: "absolute",
-    top: "11px",
-    right: "10px",
+    top: "15px",
+    right: "18px",
   },
-
+  btn:{
+    fontWeight:"500px !important"
+  },
   YouTube: {
     position: "absolute",
     bottom: "10px",
@@ -65,6 +68,7 @@ export default function ImageComponent({ backgroundImage }) {
     >
       <div className={classes.shareButton}>
         <Button
+        className={classes.btn}
           backgroundColor={"white"}
           onClick={handleShareClick}
           title={"Share Mission"}

@@ -9,10 +9,10 @@ const useStyles = makeStyles({
     overflowX: "auto",
     scrollBehavior: "smooth",
     width: "100%",
-    paddingBottom: "20px",
+    marginTop: "10px",
+    marginBottom:"10px",
     "-ms-overflow-style": "none" /* IE and Edge */,
     scrollbarWidth: "none" /* Firefox */,
-
     "&::-webkit-scrollbar": {
       display: "none" /* Chrome, Safari, and Opera */,
     },
@@ -30,29 +30,32 @@ const useStyles = makeStyles({
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    borderRadius:'12px'
+    borderRadius: "12px",
   },
 });
 
 const CharityImages = ({ id, imageUrls }) => {
   const classes = useStyles();
 
-
   return (
     <div className={classes.sliderContainer}>
       {imageUrls.map((imageUrl, index) => (
-        <div
-          key={index}
-          className={`${classes.slide} ${
-            index === imageUrls.length - 1 ? classes.slideLastChild : ""
-          }`}
-        >
-          <img
-            src={`${BASE_URL}${imageUrl.picture_path}`}
-            alt={`Image ${index + 1}`}
-            className={classes.slideImage}
-          />
-        </div>
+        <>
+          {imageUrl.picture_path !== null ? (
+            <div
+              key={index}
+              className={`${classes.slide} ${
+                index === imageUrls.length - 1 ? classes.slideLastChild : ""
+              }`}
+            >
+              <img
+                src={`${BASE_URL}${imageUrl.picture_path}`}
+                alt={`Image ${index + 1}`}
+                className={classes.slideImage}
+              />
+            </div>
+          ) : null}
+        </>
       ))}
     </div>
   );

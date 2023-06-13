@@ -4,8 +4,8 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   button: {
     
-    height: "32px",
-    padding: "7px",
+  
+    padding: "5px 20px",
     borderRadius: "8px",
     display: "flex",
     alignItems: "center",
@@ -15,10 +15,10 @@ const useStyles = makeStyles({
     border: "none",
     outline: "none",
     fontStyle: "normal",
-    fontWeight: "700",
-    fontSize: "14px",
+    fontSize: "12px",
     lineHeight: "17px",
     textTransform: "uppercase",
+    fontWeight:"500",
     gap:"5px"
 
   },
