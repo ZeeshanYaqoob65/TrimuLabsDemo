@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
 
 import backgroundImage from "../../../assests/images/dummy_image.png";
 import Share from "../../../assests/images/web_share_img.png";
 import TitleButton from "../../../components/TitleButton";
+import ModalComponent from "../../../components/ModalComponent";
 
 const useStyles = makeStyles({
   container: {
@@ -43,6 +44,15 @@ export default function TitleComponent({
   received_amount,
 }) {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const goal = new Intl.NumberFormat().format(goal_amount);
   const received = new Intl.NumberFormat().format(received_amount);
   const handleShareClick = () => {};
@@ -51,15 +61,18 @@ export default function TitleComponent({
   };
 
   return (
-    <Container className={classes.container}>
-      <div className={classes.title}>{title}</div>
-      <div className={classes.amount}>
-        ${received} of ${goal}
-      </div>
-      <div className={classes.buttons}>
-        <TitleButton title="Donate" />
-        <TitleButton title="Selling Property ?" onClick={handleClick} />
-      </div>
-    </Container>
+    <>
+      <ModalComponent open={open} onClose={handleClose} total={goal_amount} received={received_amount}/>
+      <Container className={classes.container}>
+        <div className={classes.title}>{title}</div>
+        <div className={classes.amount}>
+          ${received} of ${goal}
+        </div>
+        <div className={classes.buttons}>
+          <TitleButton title="Donate" onClick={handleOpen} />
+          <TitleButton title="Selling Property ?" onClick={handleClick} />
+        </div>
+      </Container>
+    </>
   );
 }

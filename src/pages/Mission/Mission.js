@@ -24,6 +24,7 @@ import StateDisclosure from "./Components/StateDisclosure";
 
 export default function Mission() {
   const { id } = useParams();
+  console.log(id)
 
   const [missionData, setMissionData] = useState();
   const [missionEvent, setMissionEvent] = useState([]);
@@ -114,7 +115,7 @@ export default function Mission() {
             </>
           )}
 
-          {missionPrayer.length > 0 && (
+          {!missionPrayer.length <= 0 && (
             <>
               {missionPrayer.map((mission, index) => (
                 <RequestPrayer index={index} Prayer={mission.prayer_text} />
@@ -136,7 +137,7 @@ export default function Mission() {
             website={missionData.charity.website}
             taxEIN={missionData.charity.irs_tax}
           />
-          <StateDisclosure disclosure={missionData.state_disclosure[0]} />
+          {/* <StateDisclosure disclosure={missionData.state_disclosure[0]} /> */}
 
           <ParagraphText text={charityText} isUppercase={false}></ParagraphText>
 
@@ -147,6 +148,11 @@ export default function Mission() {
           <Footer />
         </div>
       )}
+      {!missionData &&(
+        <div>heko</div>
+      )
+
+      }
     </>
   );
 }
