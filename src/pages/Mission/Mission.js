@@ -32,7 +32,7 @@ export default function Mission() {
   const [missionEvent, setMissionEvent] = useState([]);
   const [eventImages, setEventImages] = useState([]);
   const [missionPrayer, setMissionPrayer] = useState([]);
-  const [StateDisclosure, setStateDiscloure] = useState([]);
+  const [StateDisclosures, setStateDisclouress] = useState([]);
 
   const getCharityGraph = (charityName) => {
     const data = `Financial info and charitable purpose, programs, and activities is either above, or can be obtained by contacting ${charityName}, and or as stated below.\n\nDonations go direct to ${charityName} via PayPal preferenced for missionary or minister (worker’s role and budget with charity). SeedForMe does not receive donation money or fees from PayPal. Preferencing support for worker is secondary to gifts use by the charity. Worker’s mission or ministry is to be conducted under direction of the charity and its board approves worker’s budget`;
@@ -51,7 +51,7 @@ export default function Mission() {
         setMissionEvent(data.data.mission_events);
         setEventImages(data.data.gallery);
         setMissionPrayer(data.data.mission_prayers);
-        setStateDiscloure(data.data.state_disclosure);
+        setStateDiscloures(data.data.state_disclosure);
       } catch (error) {
         console.error("Error fetching mission data:", error);
       }
@@ -147,8 +147,10 @@ export default function Mission() {
             website={missionData.charity.website}
             taxEIN={missionData.charity.irs_tax}
           />
-          {StateDisclosure.length > 0 && (
-            <StateDisclosure disclosure={missionData.state_disclosure[0]} />
+          {StateDisclosures.length > 0 && (
+            <>
+              <StateDisclosure disclosure={missionData.state_disclosure[0]} />
+            </>
           )}
 
           <ParagraphText text={charityText} isUppercase={false}></ParagraphText>
