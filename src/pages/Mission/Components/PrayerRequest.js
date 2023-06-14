@@ -12,10 +12,21 @@ const useStyles = makeStyles({
     flexDirection: "column",
     background: " #384885",
     borderRadius: "10px",
-    maxWidth: "800px",
     width: "100%",
     padding: "16px 11px 23px 13px",
     textAlign: "center",
+
+    "@media (min-width: 800px)": {
+      display: "flex",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      flexDirection: "row",
+      textAlign: "left",
+      gap: "35px",
+      maxHeight: "221px",
+      height:"100%",
+      padding:"20px",
+    },
   },
   title: {
     fontSize: "24px",
@@ -42,11 +53,23 @@ const useStyles = makeStyles({
     background: "#48C7F4",
     borderRadius: "10px",
     border: "none",
+    "@media (min-width: 800px)": {
+      flexDirection: "column",
+      width: "182px",
+      height: "182px",
+      justifyContent: "center",
+      fontWeight: "normal",
+    },
   },
   icon: {
     width: "30px",
     height: "33px",
     marginRight: "5.81px",
+  },
+  dataContaier: {
+    "@media (min-width: 800px)": {
+      padding: "9px 0px 9px 19px",
+    },
   },
 });
 
@@ -56,8 +79,11 @@ const RequestPrayer = ({ index, Prayer }) => {
   return (
     <div className={classes.wrapper} key={index}>
       <div className={classes.container}>
-        <div className={classes.title}>Request Prayer</div>
-        <div className={classes.description}>{Prayer}</div>
+        <div className={classes.dataContaier}>
+          <div className={classes.title}>Request Prayer</div>
+          <div className={classes.description}>{Prayer}</div>
+        </div>
+
         <div>
           <button className={classes.button}>
             <div>

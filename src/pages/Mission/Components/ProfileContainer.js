@@ -6,10 +6,21 @@ import AlterImg from "../../../assests/images/image_placeholder_small.png";
 const useStyles = makeStyles({
   container: {
     display: "flex",
+    width: "100%",
+
+    "@media (min-width: 800px)": {
+      height: "278px !important",
+      borderRadius: 20,
+      overflow: "hidden",
+    },
   },
   image: {
     width: "126px",
     height: "126px",
+    "@media (min-width: 800px)": {
+      width: "278px",
+      height: "278px",
+    },
   },
   content: {
     flex: 1,
@@ -33,7 +44,7 @@ const useStyles = makeStyles({
     fontWeight: 400,
     fontSize: "12px",
     lineHeight: "15px",
-  
+
     color: "#FFFFFF",
   },
   letsTalk: {
@@ -65,7 +76,7 @@ const ProfileContainer = ({
   const classes = useStyles();
   const handleLetsTalkClick = () => {
     console.log("handle clocke");
-  
+
     try {
       const isMobile =
         typeof navigator !== "undefined" &&
@@ -84,11 +95,12 @@ const ProfileContainer = ({
       console.log("error", error);
     }
   };
-  const imgSrc = ProfilePicture !== null ?  `${BASE_URL}${ProfilePicture}` : AlterImg;
+  const imgSrc =
+    ProfilePicture !== null ? `${BASE_URL}${ProfilePicture}` : AlterImg;
 
   return (
     <div className={classes.container}>
-      <img src={imgSrc} alt={AlterImg} className={classes.image}  />
+      <img src={imgSrc} alt={AlterImg} className={classes.image} />
       <div className={classes.content}>
         <div className={classes.name}>{name}</div>
         <div className={classes.address}>

@@ -7,12 +7,23 @@ import { BASE_URL } from "../utils";
 const useStyles = makeStyles({
   container: {
     display: "flex",
-
     background: "#F1F1F3",
+    "@media (min-width: 800px)": {
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "0px !important",
+      borderRadius:20,
+      overflow:"hidden"
+    },
   },
   image: {
     width: "149px",
     height: "149px",
+    "@media (min-width: 800px)": {
+      width: "100%",
+      height: "100%",
+    },
   },
   icon: {
     position: "absolute",
@@ -64,6 +75,13 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "space-between",
     padding: "14px 8px 11px 16px",
+  
+    "@media (min-width: 800px)": {
+      padding: "14px 0px 0px 16px",
+      justifyContent: "center",
+      alignItems:"center",
+      textAlign:"center",
+    },
   },
 });
 

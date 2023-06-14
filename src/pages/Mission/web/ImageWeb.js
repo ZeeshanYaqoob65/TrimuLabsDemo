@@ -19,20 +19,18 @@ const useStyles = makeStyles({
     position: "relative",
     maxHeight: "800px",
     fontWeight: "500px !important",
+    height: "600px",
 
     "@media (min-width: 800px)": {
       display: "block",
       margin: "0px !important",
-      paddingBottom: "0px !important",
+      paddingBottom: "0px",
     },
   },
   shareButton: {
     position: "absolute",
     top: "15px",
     right: "18px",
-    "@media (min-width: 800px)": {
-      display: "none",
-    },
   },
   btn: {
     fontWeight: "500px !important",
@@ -44,7 +42,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImageComponent({ backgroundImage }) {
+export default function ImageWeb({ backgroundImage }) {
   useEffect(() => {}, [backgroundImage]);
   const classes = useStyles({ backgroundImage });
   const handleShareClick = () => {
@@ -84,10 +82,6 @@ export default function ImageComponent({ backgroundImage }) {
           icon={Share}
         ></Button>
       </div>
-
-      {/* <div className={classes.YouTube}>
-        <Button backgroundColor={'#E5202B'} onClick={handleShareClick} title={"Youtube"} icon={Share} ></Button>
-     </div > */}
     </Container>
   );
 }

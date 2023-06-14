@@ -11,6 +11,18 @@ const useStyles = makeStyles({
     alignItems: "center",
     flexDirection: "column",
     margin: "21px auto",
+
+    "@media (min-width: 800px)": {
+      display: "flex",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      flexDirection:"row",
+      gap:40,
+      textAlign:"left",
+      margin :"0px",
+      padding:20,
+
+    },
   },
   image: {
     width: "140px",
@@ -48,22 +60,19 @@ const CharityComponent = ({
   taxEIN,
 }) => {
   const classes = useStyles();
-  const showImg = imageUrl !==null ?  `${BASE_URL}${imageUrl} ` : AlterImg;
-  
+  const showImg = imageUrl !== null ? `${BASE_URL}${imageUrl} ` : AlterImg;
 
   return (
     <div className={classes.container}>
-      <img
-        src={showImg}
-        alt={AlterImg}
-        className={classes.image}
-      />
-      <div className={classes.charityName}>{name}</div>
-      <div className={classes.charityAddress}>{address}</div>
-      <div className={classes.contactInfo}>
-        {phone} {email} {website}
+      <img src={showImg} alt={AlterImg} className={classes.image} />
+      <div>
+        <div className={classes.charityName}>{name}</div>
+        <div className={classes.charityAddress}>{address}</div>
+        <div className={classes.contactInfo}>
+          {phone} {email} {website}
+        </div>
+        <div className={classes.irsText}>IRS Tax EIN: {taxEIN}</div>
       </div>
-      <div className={classes.irsText}>IRS Tax EIN: {taxEIN}</div>
     </div>
   );
 };
