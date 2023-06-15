@@ -26,8 +26,8 @@ const useStyles = makeStyles({
     fontFamily: "Inter",
     fontStyle: "normal",
     fontWeight: 700,
-    fontSize: "32px",
-    lineHeight: "38px",
+    fontSize: "20px",
+    lineHeight: "30px",
     color: "#EDBE49",
     marginTop: "12px",
     marginBottom: "18px",
@@ -70,7 +70,7 @@ export default function TitleComponent({
         </div>
         <div className={classes.buttons}>
           <TitleButton title="Donate" onClick={handleOpen} />
-          <TitleButton title="Selling Property ?" onClick={handleClick} />
+          <TitleButton title="Selling Property?" onClick={handleClick} />
         </div>
       </Container>
     </>

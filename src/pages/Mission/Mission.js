@@ -89,7 +89,7 @@ export default function Mission() {
               <Paragraph
                 text={missionData.mission.mission_details}
                 lineLimit={10}
-              ></Paragraph>
+              />
             </div>
             <ProfileContainer
               name={missionData.user.name}

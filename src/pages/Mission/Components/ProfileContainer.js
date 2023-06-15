@@ -35,7 +35,7 @@ const useStyles = makeStyles({
     fontWeight: 700,
     fontSize: "16px",
     lineHeight: "19px",
-    textTransform: "uppercase",
+
     color: "#FFFFFF",
   },
   address: {
@@ -53,7 +53,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     gap: "4px",
     fontStyle: "normal",
-    fontWeight: 700,
+
     fontSize: "14px",
     lineHeight: "15px",
     textTransform: "uppercase",
@@ -63,7 +63,11 @@ const useStyles = makeStyles({
     width: "20px",
     height: "20px",
   },
+  businessTag:{
+    textTransform:"uppercase"
+  }
 });
+
 
 const ProfileContainer = ({
   name,
@@ -105,7 +109,7 @@ const ProfileContainer = ({
         <div className={classes.name}>{name}</div>
         <div className={classes.address}>
           <div>{charityName}</div>
-          <div>{businessTag}</div>
+          <div className={classes.businessTag}>{businessTag}</div>
         </div>
         <div className={classes.letsTalk} onClick={handleLetsTalkClick}>
           <div>
