@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
 import backgroundImage from "../assests/images/arrowdown.png";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const useStyles = makeStyles({
   overflow: {
@@ -14,13 +15,12 @@ const useStyles = makeStyles({
   readMoreButton: {
     fontSize: "14px",
     color: "#48C7F4",
-
   },
   ButtonContainer: {
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
-    marginRight:"20px"
+    marginRight: "20px",
   },
   icon: {
     marginTop: "5px",
@@ -30,7 +30,11 @@ const useStyles = makeStyles({
   },
   ParagraphStyle: {
     padding: "0px 20px 0px 20px",
-    textAlign:"justify"
+    textAlign: "justify",
+  },
+  downArrow: {
+    fontSize: "12px",
+    color: "#48C7F4",
   },
 });
 
@@ -103,10 +107,9 @@ const Paragraph = ({ text, lineLimit }) => {
           >
             Read Less
           </div>
-          <img
-            src={backgroundImage}
-            alt="Button Icon"
-            className={classes.icon}
+          <KeyboardArrowUpIcon
+            sx={{ fontSize: 20, marginTop: "3px" }}
+            className={classes.downArrow}
           />
         </div>
       )}
