@@ -83,6 +83,7 @@ export default function Mission() {
               title={missionData.mission.title}
               received_amount={missionData.mission.received_amount}
               goal_amount={missionData.mission.goal_amount}
+              payment_keys={missionData.mission.payment_keys}
             />
 
             <div style={{ paddingBottom: "30px", marginTop: 20 }}>

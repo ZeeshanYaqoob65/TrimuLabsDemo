@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import logo from "../assests/images/seed_for_me.png";
 import paypal from "../assests/images/paypal_h.png";
 import closeIcon from "../assests/images/close_btn.png";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles({
   container: {
@@ -92,29 +93,50 @@ const useStyles = makeStyles({
   closeImg: {
     width: "27px",
     height: "100%",
-    marginRight:"10px"
+    marginRight: "10px",
   },
 });
 
-const ModalComponent = ({ open, onClose, received, total }) => {
+const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
   const classes = useStyles();
   const [amount, setAmount] = useState("");
   const [name, setName] = useState("");
   const [receivedAmount, setReceivedAmount] = useState(0);
+  const { id } = useParams();
   useEffect(() => {
     if (received) {
       setReceivedAmount(received);
     }
   }, [received]);
-  const handleNext = () => {
-    // Perform your post request here
-    const data = {
-      amount,
-      name,
-    };
-    console.log(data);
+  const handleNext = async () => {
+    try {
+      const url = "https://seedapis.seedforme.com/api/v1/payment";
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          missionId: id,
+          amount: receivedAmount,
+          user_name: name,
+          email: "",
+          description: "",
+        }),
+      };
 
-    onClose();
+      const response = await fetch(url, requestOptions);
+      const data = await response.json();
+
+      if (data) {
+        console.log("response for api", data);
+      }
+      window.open(payment_keys, "_blank");
+
+      onClose();
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   return (

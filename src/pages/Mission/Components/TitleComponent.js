@@ -42,6 +42,7 @@ export default function TitleComponent({
   title,
   goal_amount,
   received_amount,
+  payment_keys
 }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -62,7 +63,7 @@ export default function TitleComponent({
 
   return (
     <>
-      <ModalComponent open={open} onClose={handleClose} total={goal_amount} received={received_amount}/>
+      <ModalComponent open={open} onClose={handleClose} total={goal_amount} received={received_amount} payment_keys={payment_keys}/>
       <Container className={classes.container}>
         <div className={classes.title}>{title}</div>
         <div className={classes.amount}>
