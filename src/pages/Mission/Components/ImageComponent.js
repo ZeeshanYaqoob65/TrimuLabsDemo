@@ -36,6 +36,7 @@ const useStyles = makeStyles({
   },
   btn: {
     fontWeight: "500px !important",
+    color: "black",
   },
   YouTube: {
     position: "absolute",
@@ -82,7 +83,7 @@ export default function ImageComponent({ backgroundImage }) {
           onClick={handleShareClick}
           title={"Share Mission"}
           icon={Share}
-        ></Button>
+        />
       </div>
 
       {/* <div className={classes.YouTube}>
