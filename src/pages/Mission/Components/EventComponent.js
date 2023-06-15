@@ -13,8 +13,8 @@ const useStyles = makeStyles({
       justifyContent: "center",
       alignItems: "center",
       padding: "0px !important",
-      borderRadius:20,
-      overflow:"hidden"
+      borderRadius: 20,
+      overflow: "hidden",
     },
   },
   image: {
@@ -75,12 +75,12 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "space-between",
     padding: "14px 8px 11px 16px",
-  
+
     "@media (min-width: 800px)": {
       padding: "14px 0px 0px 16px",
       justifyContent: "center",
-      alignItems:"center",
-      textAlign:"center",
+      alignItems: "center",
+      textAlign: "center",
     },
   },
 });
@@ -93,6 +93,7 @@ const EventComponent = ({
   eventStartTime,
   eventEndTime,
   missionImage,
+  missionUrl,
 }) => {
   const classes = useStyles();
   const imgSrc = `${BASE_URL}${imageUrl}`;
@@ -112,17 +113,13 @@ const EventComponent = ({
   //event start time
 
   const endTime = new Date(eventEndTime);
-  console.log(eventEndTime);
+
   const options = { hour: "numeric", minute: "2-digit", hour12: true };
   const EndTime = endTime.toLocaleTimeString("en-US", options);
-
-  console.log(EndTime);
 
   const STARTtiME = new Date(eventStartTime);
   const option = { hour: "numeric", minute: "2-digit", hour12: true };
   const STARTTIME = STARTtiME.toLocaleTimeString("en-US", option);
-
-  console.log(STARTTIME);
 
   const isLiveEvent =
     eventDate === formattedCurrentDate &&
@@ -138,11 +135,19 @@ const EventComponent = ({
       return null;
     }
   };
+  const handleImgClick = () => {
+    window.location.href = missionUrl;
+  };
 
   return (
     <div className={classes.container}>
-      <div className={classes.background}>
-        <img src={imgSrc} alt="Event Image" className={classes.image} />
+      <div className={classes.background}   onClick={handleImgClick}>
+        <img
+          src={imgSrc}
+          alt="Event Image"
+          className={classes.image}
+        
+        />
         <div className={classes.renderIcon}>{renderIcon()}</div>
       </div>
       <div className={classes.eventDetails}>

@@ -120,6 +120,7 @@ export default function Mission() {
                       eventDate={mission.event_date}
                       eventStartTime={mission.start_time}
                       eventEndTime={mission.end_time}
+                      missionUrl={mission.url}
                     />
                   ) : null
                 )}
