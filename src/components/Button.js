@@ -11,6 +11,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: (props) => props.backgroundColor  ? props.backgroundColor : "transparent",
+    color:  (props) => props.color  ? props.color : "black",
     cursor: "pointer",
     border: "none",
     outline: "none",
@@ -28,11 +29,9 @@ const useStyles = makeStyles({
   },
 });
 
-const Button = ({ onClick, backgroundColor, icon, title }) => {
-  const classes = useStyles({ backgroundColor });
-  useEffect(()=>{
-    console.log(backgroundColor)
-  },[backgroundColor])
+const Button = ({ onClick, backgroundColor, icon, title ,color}) => {
+  const classes = useStyles({ backgroundColor,color });
+
 
   return (
     <button className={classes.button} onClick={onClick}>

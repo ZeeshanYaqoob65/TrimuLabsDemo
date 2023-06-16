@@ -65,9 +65,7 @@ export default function Mission() {
     fetchMissionData();
   }, [id]);
 
-  useEffect(() => {
-    console.log("mission event", missionEvent);
-  }, [missionEvent]);
+ 
 
   const charityText = getCharityGraph(missionData?.charity?.name);
   return (
@@ -77,6 +75,8 @@ export default function Mission() {
           <div className={classes.mobileView}>
             <ImageComponent
               backgroundImage={missionData.mission.title_picture}
+              eventEndTime={missionEvent[0].end_time}
+              eventStartTime={missionEvent[0].start_time}
             />
 
             <TitleComponent
@@ -182,6 +182,8 @@ export default function Mission() {
                 title={missionData.mission.title}
                 received_amount={missionData.mission.received_amount}
                 goal_amount={missionData.mission.goal_amount}
+                eventEndTime={missionEvent[0].end_time}
+                eventStartTime={missionEvent[0].start_time}
               />
             </div>
             <div className={classes.mainContainer}>
@@ -190,16 +192,18 @@ export default function Mission() {
                   text={missionData.mission.mission_details}
                   lineLimit={10}
                 />
-                <ProfileContainer
-                  name={missionData.user.name}
-                  address={missionData.charity.address}
-                  charityName={missionData.charity.name}
-                  businessTag={missionData.user.business_title}
-                  phone={missionData.user.phone}
-                  BusinessLogo={missionData.user.business_logo}
-                  ProfilePicture={missionData.user.profile_picture}
-                  imageSrc={profileImg}
-                />
+                <div style={{ marginTop: 30, marginBottom: 15 }}>
+                  <ProfileContainer
+                    name={missionData.user.name}
+                    address={missionData.charity.address}
+                    charityName={missionData.charity.name}
+                    businessTag={missionData.user.business_title}
+                    phone={missionData.user.phone}
+                    BusinessLogo={missionData.user.business_logo}
+                    ProfilePicture={missionData.user.profile_picture}
+                    imageSrc={profileImg}
+                  />
+                </div>
                 <Paragraph text={missionData.user.about_us} lineLimit={4} />
                 {eventImages.length > 0 && (
                   <>
@@ -323,15 +327,15 @@ const useStyles = makeStyles({
   },
   mainContainer: {
     display: "flex",
-    gap: 35,
-    marginTop: 50,
-    padding: 30,
+    gap: "35px",
+    marginTop: "50px",
+    padding: "30px",
   },
   left: {
-    flex: 0.7,
+    width:"80%"
   },
   right: {
-    flex: 0.3,
+   width:"20%"
   },
   charityContainer: {
     border: "1px solid #E0E0E0",
@@ -341,9 +345,9 @@ const useStyles = makeStyles({
   charityDetails: {
     padding: "20px",
   },
-  propertyContainer:{
-    marginTop:24,
-    borderRadius:10,
-    overflow:"hidden"
-  }
+  propertyContainer: {
+    marginTop: 24,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
 });

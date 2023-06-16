@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import youtube from "../../../assests/images/youtube_img.png";
 import zoomImg from "../../../assests/images/zoom_img.png";
@@ -13,8 +13,13 @@ const useStyles = makeStyles({
       justifyContent: "center",
       alignItems: "center",
       padding: "0px !important",
-      borderRadius: 20,
+      borderRadius: "10px",
       overflow: "hidden",
+      position: "relative",
+      width:"358px",
+      width:"100%"
+
+    
     },
   },
   image: {
@@ -60,6 +65,9 @@ const useStyles = makeStyles({
     borderRadius: "10px",
     cursor: "pointer",
     backgroundColor: "#E22432",
+    "@media (min-width: 800px)": {
+      display: "none",
+    },
   },
   renderIcon: {
     position: "absolute",
@@ -83,6 +91,29 @@ const useStyles = makeStyles({
       textAlign: "center",
     },
   },
+  buttonWebLive: {
+    display: "none",
+
+    "@media (min-width: 800px)": {
+      display: "flex",
+      position: "absolute",
+      width: "100%",
+      backgroundColor: "red",
+      height: "40px",
+      top: 0,
+      left: 0,
+      zIndex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      color: "white",
+      fontFamily: "Inter",
+      fontStyle: "normal",
+      fontWeight: 700,
+      fontSize: "18px",
+      lineHeight: "19px",
+    },
+  },
 });
 
 const EventComponent = ({
@@ -95,6 +126,26 @@ const EventComponent = ({
   missionImage,
   missionUrl,
 }) => {
+
+  const [isBetweenTimeRange, setIsBetweenTimeRange] = useState(false);
+
+  useEffect(() => {
+    const checkTimeRange = () => {
+      const currentTime = new Date(); // Get current time
+
+      const startTime = new Date(eventStartTime);
+      const endTime = new Date(eventEndTime);
+
+      if (currentTime >= startTime && currentTime <= endTime) {
+        setIsBetweenTimeRange(true);
+      } else {
+        setIsBetweenTimeRange(false);
+      }
+    };
+
+    checkTimeRange();
+  }, []);
+
   const classes = useStyles();
   const imgSrc = `${BASE_URL}${imageUrl}`;
   const currentDate = new Date();
@@ -141,13 +192,12 @@ const EventComponent = ({
 
   return (
     <div className={classes.container}>
-      <div className={classes.background}   onClick={handleImgClick}>
-        <img
-          src={imgSrc}
-          alt="Event Image"
-          className={classes.image}
-        
-        />
+      {isBetweenTimeRange && (
+        <div className={classes.buttonWebLive}>LIVE ONLINE</div>
+      )}
+
+      <div className={classes.background} onClick={handleImgClick}>
+        <img src={imgSrc} alt="Event Image" className={classes.image} />
         <div className={classes.renderIcon}>{renderIcon()}</div>
       </div>
       <div className={classes.eventDetails}>
@@ -157,7 +207,7 @@ const EventComponent = ({
           <div className={classes.eventTime}>{`${STARTTIME} - ${EndTime}`}</div>
         </div>
 
-        {isLiveEvent && (
+        {isBetweenTimeRange && (
           <button className={classes.liveButton}>LIVE ONLINE</button>
         )}
       </div>

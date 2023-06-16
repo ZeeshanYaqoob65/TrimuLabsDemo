@@ -31,6 +31,9 @@ const useStyles = makeStyles({
     position: "absolute",
     top: "15px",
     right: "18px",
+    "@media (min-width: 800px)": {
+      display: "none",
+    },
   },
   btn: {
     fontWeight: "500px !important",
@@ -43,7 +46,6 @@ const useStyles = makeStyles({
 });
 
 export default function ImageWeb({ backgroundImage }) {
-  useEffect(() => {}, [backgroundImage]);
   const classes = useStyles({ backgroundImage });
   const handleShareClick = () => {
     if (navigator.share) {

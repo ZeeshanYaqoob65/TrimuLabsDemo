@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
 
@@ -6,6 +6,14 @@ import backgroundImage from "../../../assests/images/dummy_image.png";
 import Share from "../../../assests/images/web_share_img.png";
 import TitleButton from "../../../components/TitleButton";
 import ModalComponent from "../../../components/ModalComponent";
+
+import Play from "../../../assests/images/web_play_img.png";
+import faceBook from "../../../assests/images/facebook_white_small.png";
+import twitter from "../../../assests/images/twitter_white_small.png";
+import whatsapp from "../../../assests/images/whatsapp_white_small.png";
+import message from "../../../assests/images/speech_white_small.png";
+import mailbox from "../../../assests/images/email_img.png";
+import Button from "../../../components/Button";
 
 const useStyles = makeStyles({
   container: {
@@ -15,6 +23,7 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    position:"relative"
   },
   title: {
     fontFamily: "Inter",
@@ -39,11 +48,49 @@ const useStyles = makeStyles({
     display: "flex",
     gap: "16px",
     width: "100%",
-    maxWidth:"350px"
+    maxWidth: "350px",
   },
+  YouTube:{
+    marginBottom:20
+  },
+  share:{
+    display:'flex',
+    alignItems:"center",
+    justifyContent:"center",
+    gap:10,
+    color:"white",
+    position:"absolute",
+    top:20,
+    right:30
+
+  }
 });
 
-export default function TitleWeb({ title, goal_amount, received_amount }) {
+export default function TitleWeb({
+  title,
+  goal_amount,
+  received_amount,
+  eventStartTime,
+  eventEndTime,
+}) {
+  const [isBetweenTimeRange, setIsBetweenTimeRange] = useState(false);
+
+  useEffect(() => {
+    const checkTimeRange = () => {
+      const currentTime = new Date(); // Get current time
+
+      const startTime = new Date(eventStartTime);
+      const endTime = new Date(eventEndTime);
+
+      if (currentTime >= startTime && currentTime <= endTime) {
+        setIsBetweenTimeRange(true);
+      } else {
+        setIsBetweenTimeRange(false);
+      }
+    };
+
+    checkTimeRange();
+  }, []);
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -54,6 +101,23 @@ export default function TitleWeb({ title, goal_amount, received_amount }) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const formatDateAndTime = (dateTime) => {
+    const date = new Date(dateTime);
+    const formattedDate = date.toLocaleDateString("en-US", {
+      month: "2-digit",
+      day: "2-digit",
+      year: "numeric",
+    });
+    const formattedTime = date.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+    return `${formattedDate} ${formattedTime}`;
+  };
+
+  const formattedDateTime = formatDateAndTime(eventEndTime);
   const goal = new Intl.NumberFormat().format(goal_amount);
   const received = new Intl.NumberFormat().format(received_amount);
   const handleShareClick = () => {};
@@ -70,6 +134,28 @@ export default function TitleWeb({ title, goal_amount, received_amount }) {
         received={received_amount}
       />
       <Container className={classes.container}>
+
+        <div className={classes.share}>
+          <div>Share Mission</div>
+          <div> <img src={faceBook} alt="Button Icon" className={classes.icon} /></div>
+          <div><img src={twitter} alt="Button Icon" className={classes.icon} /></div>
+          <div><img src={whatsapp} alt="Button Icon" className={classes.icon} /></div>
+          <div><img src={message} alt="Button Icon" className={classes.icon} /></div>
+          <div><img src={mailbox} alt="Button Icon" className={classes.icon} /></div>
+
+        </div>
+        {isBetweenTimeRange && (
+          <div className={classes.YouTube}>
+            <Button
+              backgroundColor={"#E5202B"}
+              onClick={handleShareClick}
+              title={`Live ${formattedDateTime}`}
+              icon={Play}
+              color="#FFFF"
+            />
+          </div>
+        )}
+
         <div className={classes.title}>{title}</div>
         <div className={classes.amount}>
           ${received} of ${goal}

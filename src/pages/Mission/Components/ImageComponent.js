@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
 
 import backgroun from "../../../assests/images/dummy_image.png";
 import Share from "../../../assests/images/web_share_img.png";
+import Play from "../../../assests/images/web_play_img.png";
 import Button from "../../../components/Button";
 import { BASE_URL } from "../utils";
 
@@ -45,8 +46,29 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImageComponent({ backgroundImage }) {
-  useEffect(() => {}, [backgroundImage]);
+export default function ImageComponent({
+  backgroundImage,
+  eventStartTime,
+  eventEndTime,
+}) {
+  const [isBetweenTimeRange, setIsBetweenTimeRange] = useState(false);
+
+  useEffect(() => {
+    const checkTimeRange = () => {
+      const currentTime = new Date(); // Get current time
+
+      const startTime = new Date(eventStartTime);
+      const endTime = new Date(eventEndTime);
+
+      if (currentTime >= startTime && currentTime <= endTime) {
+        setIsBetweenTimeRange(true);
+      } else {
+        setIsBetweenTimeRange(false);
+      }
+    };
+
+    checkTimeRange();
+  }, []);
   const classes = useStyles({ backgroundImage });
   const handleShareClick = () => {
     if (navigator.share) {
@@ -67,6 +89,22 @@ export default function ImageComponent({ backgroundImage }) {
     }
   };
 
+  const formatDateAndTime = (dateTime) => {
+    const date = new Date(dateTime);
+    const formattedDate = date.toLocaleDateString("en-US", {
+      month: "2-digit",
+      day: "2-digit",
+      year: "numeric",
+    });
+    const formattedTime = date.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+    return `${formattedDate} ${formattedTime}`;
+  };
+  const formattedDateTime = formatDateAndTime(eventEndTime);
+
   return (
     <Container
       className={classes.container}
@@ -85,10 +123,17 @@ export default function ImageComponent({ backgroundImage }) {
           icon={Share}
         />
       </div>
-
-      {/* <div className={classes.YouTube}>
-        <Button backgroundColor={'#E5202B'} onClick={handleShareClick} title={"Youtube"} icon={Share} ></Button>
-     </div > */}
+      {isBetweenTimeRange && (
+        <div className={classes.YouTube}>
+          <Button
+            backgroundColor={"#E5202B"}
+            onClick={handleShareClick}
+            title={`Live ${formattedDateTime}`}
+            icon={Play}
+            color="#FFFF"
+          />
+        </div>
+      )}
     </Container>
   );
 }
