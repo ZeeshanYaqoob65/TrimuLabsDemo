@@ -66,7 +66,10 @@ const useStyles = makeStyles({
   },
   iconMail:{
     filter: 'invert(100%) brightness(1000) contrast(1000)',
-    width:36,
+    width:26,
+  },
+  icons:{
+    width:26,
   }
 });
 
@@ -145,16 +148,16 @@ export default function TitleWeb({
           <div>Share Mission</div>
           <div>
             {" "}
-            <img src={faceBook} alt="Button Icon" className={classes.icon} />
+            <img src={faceBook} alt="Button Icon" className={classes.icons} />
           </div>
           <div>
-            <img src={twitter} alt="Button Icon" className={classes.icon} />
+            <img src={twitter} alt="Button Icons" className={classes.icons} />
           </div>
           <div>
-            <img src={whatsapp} alt="Button Icon" className={classes.icon} />
+            <img src={whatsapp} alt="Button Icons" className={classes.icons} />
           </div>
           <div>
-            <img src={message} alt="Button Icon" className={classes.icon} />
+            <img src={message} alt="Button Icons" className={classes.icons} />
           </div>
           <div>
             <img

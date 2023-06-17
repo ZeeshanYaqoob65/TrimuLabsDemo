@@ -6,6 +6,8 @@ import TextField from "@mui/material/TextField";
 import logo from "../assests/images/seed_for_me.png";
 import paypal from "../assests/images/paypal_h.png";
 import closeIcon from "../assests/images/close_btn.png";
+import InputAdornment from "@mui/material/InputAdornment";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -156,8 +158,14 @@ const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
         <div className={classes.textBold}>raise 'Now At' total:</div>
 
         <TextField
-          label=""
-          prefix="$"
+          label="Enter Amount"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <AttachMoneyIcon sx={{color:"black"}} />
+              </InputAdornment>
+            ),
+          }}
           value={amount}
           onChange={(e) => {
             const input = e.target.value;
