@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   charityName: {
     fontSize: "18px",
     fontWeight: 500,
-    marginBottom: "6px",
+   
     marginTop: "9px",
   },
   charityAddress: {
@@ -40,12 +40,11 @@ const useStyles = makeStyles({
   },
   contactInfo: {
     fontSize: "12px",
-    marginBottom: "8px",
     color: "#7A7A7A",
   },
   irsText: {
     fontSize: "12px",
-    marginBottom: "8px",
+
     color: "#7A7A7A",
   },
 });

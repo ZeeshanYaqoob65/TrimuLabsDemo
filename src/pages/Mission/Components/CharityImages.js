@@ -49,6 +49,7 @@ const CharityImages = ({ id, imageUrls }) => {
               }`}
             >
               <img
+              key={index}
                 src={`${BASE_URL}${imageUrl.picture_path}`}
                 alt={`Image ${index + 1}`}
                 className={classes.slideImage}

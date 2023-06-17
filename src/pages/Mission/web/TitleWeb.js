@@ -6,6 +6,7 @@ import backgroundImage from "../../../assests/images/dummy_image.png";
 import Share from "../../../assests/images/web_share_img.png";
 import TitleButton from "../../../components/TitleButton";
 import ModalComponent from "../../../components/ModalComponent";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
 import Play from "../../../assests/images/web_play_img.png";
 import faceBook from "../../../assests/images/facebook_white_small.png";
@@ -23,7 +24,7 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    position:"relative"
+    position: "relative",
   },
   title: {
     fontFamily: "Inter",
@@ -50,19 +51,22 @@ const useStyles = makeStyles({
     width: "100%",
     maxWidth: "350px",
   },
-  YouTube:{
-    marginBottom:20
+  YouTube: {
+    marginBottom: 20,
   },
-  share:{
-    display:'flex',
-    alignItems:"center",
-    justifyContent:"center",
-    gap:10,
-    color:"white",
-    position:"absolute",
-    top:20,
-    right:30
-
+  share: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+    color: "white",
+    position: "absolute",
+    top: 20,
+    right: 30,
+  },
+  iconMail:{
+    filter: 'invert(100%) brightness(1000) contrast(1000)',
+    width:36,
   }
 });
 
@@ -72,6 +76,7 @@ export default function TitleWeb({
   received_amount,
   eventStartTime,
   eventEndTime,
+  missionUrl,
 }) {
   const [isBetweenTimeRange, setIsBetweenTimeRange] = useState(false);
 
@@ -120,7 +125,9 @@ export default function TitleWeb({
   const formattedDateTime = formatDateAndTime(eventEndTime);
   const goal = new Intl.NumberFormat().format(goal_amount);
   const received = new Intl.NumberFormat().format(received_amount);
-  const handleShareClick = () => {};
+  const handleShareClick = () => {
+    window.location = missionUrl;
+  };
   const handleClick = () => {
     window.location.href = "https://www.youtube.com/watch?v=cv8Ee15MsNw";
   };
@@ -134,15 +141,29 @@ export default function TitleWeb({
         received={received_amount}
       />
       <Container className={classes.container}>
-
         <div className={classes.share}>
           <div>Share Mission</div>
-          <div> <img src={faceBook} alt="Button Icon" className={classes.icon} /></div>
-          <div><img src={twitter} alt="Button Icon" className={classes.icon} /></div>
-          <div><img src={whatsapp} alt="Button Icon" className={classes.icon} /></div>
-          <div><img src={message} alt="Button Icon" className={classes.icon} /></div>
-          <div><img src={mailbox} alt="Button Icon" className={classes.icon} /></div>
-
+          <div>
+            {" "}
+            <img src={faceBook} alt="Button Icon" className={classes.icon} />
+          </div>
+          <div>
+            <img src={twitter} alt="Button Icon" className={classes.icon} />
+          </div>
+          <div>
+            <img src={whatsapp} alt="Button Icon" className={classes.icon} />
+          </div>
+          <div>
+            <img src={message} alt="Button Icon" className={classes.icon} />
+          </div>
+          <div>
+            <img
+              src={mailbox}
+              alt="Button Icon"
+              className={classes.iconMail}
+              
+            />
+          </div>
         </div>
         {isBetweenTimeRange && (
           <div className={classes.YouTube}>

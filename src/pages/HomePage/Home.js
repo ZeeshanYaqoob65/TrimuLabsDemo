@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import backgroundImage from "../../assests/images/home_page.jpg"; // Replace with the path to your image
+import NavbarComponent from "./Components/NavbarComponent";
 
 const useStyles = makeStyles({
   container: {
@@ -27,9 +28,12 @@ const Home = () => {
   };
 
   return (
+    <>
+    <NavbarComponent/>
     <div className={classes.container} onClick={handleClick}>
       <img src={backgroundImage} alt="Home" className={classes.image} />
     </div>
+    </>
   );
 };
 

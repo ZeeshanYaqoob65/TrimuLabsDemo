@@ -118,7 +118,7 @@ const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
         },
         body: JSON.stringify({
           missionId: id,
-          amount: receivedAmount,
+          amount: amount,
           user_name: name,
           email: "",
           description: "",

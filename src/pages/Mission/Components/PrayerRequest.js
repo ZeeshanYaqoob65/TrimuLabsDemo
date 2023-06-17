@@ -18,14 +18,14 @@ const useStyles = makeStyles({
 
     "@media (min-width: 800px)": {
       display: "flex",
-      justifyContent: "flex-start",
+      justifyContent: "space-between",
       alignItems: "center",
       flexDirection: "row",
       textAlign: "left",
       gap: "35px",
       maxHeight: "221px",
-      height:"100%",
-      padding:"20px",
+      height: "100%",
+      padding: "20px",
     },
   },
   title: {

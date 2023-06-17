@@ -27,11 +27,12 @@ import StateDisclosure from "./Components/StateDisclosure";
 import { Box, CircularProgress } from "@mui/material";
 import TitleWeb from "./web/TitleWeb";
 import Divider from "../../components/Divider";
+import EventComponentWeb from "./web/EventComponentWeb";
+import FooterWeb from "./web/FooterWeb";
 
 export default function Mission() {
   const classes = useStyles();
   const { id } = useParams();
-  console.log(id);
 
   const [missionData, setMissionData] = useState();
   const [missionEvent, setMissionEvent] = useState([]);
@@ -65,8 +66,6 @@ export default function Mission() {
     fetchMissionData();
   }, [id]);
 
- 
-
   const charityText = getCharityGraph(missionData?.charity?.name);
   return (
     <>
@@ -77,6 +76,7 @@ export default function Mission() {
               backgroundImage={missionData.mission.title_picture}
               eventEndTime={missionEvent[0].end_time}
               eventStartTime={missionEvent[0].start_time}
+              missionUrl={missionEvent[0].url}
             />
 
             <TitleComponent
@@ -121,6 +121,7 @@ export default function Mission() {
                       eventStartTime={mission.start_time}
                       eventEndTime={mission.end_time}
                       missionUrl={mission.url}
+                      index={index}
                     />
                   ) : null
                 )}
@@ -184,6 +185,7 @@ export default function Mission() {
                 goal_amount={missionData.mission.goal_amount}
                 eventEndTime={missionEvent[0].end_time}
                 eventStartTime={missionEvent[0].start_time}
+                missionUrl={missionEvent[0].url}
               />
             </div>
             <div className={classes.mainContainer}>
@@ -255,7 +257,7 @@ export default function Mission() {
                   <>
                     {missionEvent.map((mission, index) =>
                       mission.is_active == true ? (
-                        <EventComponent
+                        <EventComponentWeb
                           imageUrl={mission.banner_picture}
                           missionImage={mission.banner_picture}
                           eventType={mission.type}
@@ -263,6 +265,8 @@ export default function Mission() {
                           eventDate={mission.event_date}
                           eventStartTime={mission.start_time}
                           eventEndTime={mission.end_time}
+                          missionUrl={mission.url}
+                          index={index}
                         />
                       ) : null
                     )}
@@ -277,7 +281,7 @@ export default function Mission() {
                 </div>
               </div>
             </div>
-            <Footer />
+            <FooterWeb />
           </div>
         </>
       )}
@@ -332,10 +336,10 @@ const useStyles = makeStyles({
     padding: "30px",
   },
   left: {
-    width:"80%"
+    width: "80%",
   },
   right: {
-   width:"20%"
+    width: "20%",
   },
   charityContainer: {
     border: "1px solid #E0E0E0",

@@ -50,7 +50,9 @@ export default function ImageComponent({
   backgroundImage,
   eventStartTime,
   eventEndTime,
+  missionUrl,
 }) {
+
   const [isBetweenTimeRange, setIsBetweenTimeRange] = useState(false);
 
   useEffect(() => {
@@ -88,6 +90,7 @@ export default function ImageComponent({
       console.log("Web Share API is not supported");
     }
   };
+
 
   const formatDateAndTime = (dateTime) => {
     const date = new Date(dateTime);
@@ -127,7 +130,9 @@ export default function ImageComponent({
         <div className={classes.YouTube}>
           <Button
             backgroundColor={"#E5202B"}
-            onClick={handleShareClick}
+            onClick={()=>{
+              window.location=missionUrl
+            }}
             title={`Live ${formattedDateTime}`}
             icon={Play}
             color="#FFFF"

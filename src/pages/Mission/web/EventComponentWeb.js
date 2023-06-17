@@ -116,7 +116,7 @@ const useStyles = makeStyles({
   },
 });
 
-const EventComponent = ({
+const EventComponentWeb = ({
   imageUrl,
   eventType,
   eventName,
@@ -127,6 +127,7 @@ const EventComponent = ({
   missionUrl,
   index
 }) => {
+    console.log(missionUrl)
   const [isBetweenTimeRange, setIsBetweenTimeRange] = useState(false);
   useEffect(() => {
     const checkTimeRange = () => {
@@ -217,4 +218,4 @@ const EventComponent = ({
   );
 };
 
-export default EventComponent;
+export default EventComponentWeb;

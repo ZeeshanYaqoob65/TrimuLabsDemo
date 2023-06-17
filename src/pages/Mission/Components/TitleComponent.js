@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
 
@@ -42,10 +42,11 @@ export default function TitleComponent({
   title,
   goal_amount,
   received_amount,
-  payment_keys
+  payment_keys,
 }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+ 
 
   const handleOpen = () => {
     setOpen(true);
