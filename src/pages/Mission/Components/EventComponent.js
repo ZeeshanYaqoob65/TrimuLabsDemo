@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 import youtube from "../../../assests/images/youtube_img.png";
 import zoomImg from "../../../assests/images/zoom_img.png";
 import { BASE_URL } from "../utils";
+import { Image } from "react-bootstrap";
 
 const useStyles = makeStyles({
   container: {
@@ -24,7 +25,8 @@ const useStyles = makeStyles({
   },
   image: {
     width: "149px",
-    height: "149px",
+    height:"100%",
+    objectFit:"cover",
     "@media (min-width: 800px)": {
       width: "100%",
       height: "100%",
@@ -171,10 +173,6 @@ const EventComponent = ({
   const option = { hour: "numeric", minute: "2-digit", hour12: true };
   const STARTTIME = STARTtiME.toLocaleTimeString("en-US", option);
 
-  const isLiveEvent =
-    eventDate === formattedCurrentDate &&
-    currentDate >= new Date(formattedCurrentDate + "T" + eventStartTime) &&
-    currentDate <= new Date(formattedCurrentDate + "T" + eventEndTime);
 
   const renderIcon = () => {
     if (eventType === 0) {
@@ -199,7 +197,7 @@ const EventComponent = ({
       )}
 
       <div className={classes.background} onClick={handleImgClick}>
-        <img src={imgSrc} alt="Event Image" className={classes.image} />
+        <Image src={imgSrc} alt="Event Image" className={classes.image} />
         <div className={classes.renderIcon}>{renderIcon()}</div>
       </div>
       <div className={classes.eventDetails}>

@@ -5,7 +5,7 @@ const useStyles = makeStyles({
   button: {
     
   
-    padding: "5px 20px",
+    padding: "10px 20px",
     borderRadius: "8px",
     display: "flex",
     alignItems: "center",

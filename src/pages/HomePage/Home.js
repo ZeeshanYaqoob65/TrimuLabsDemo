@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import backgroundImage from "../../assests/images/home_page.jpg"; // Replace with the path to your image
 import NavbarComponent from "./Components/NavbarComponent";
+import ImageHome from "./Components/ImageHome";
 
 const useStyles = makeStyles({
   container: {
@@ -11,12 +12,12 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     cursor: "pointer",
-    backgroundColor:"black"
+    backgroundColor: "black",
   },
   image: {
     width: "100%",
     height: "100%",
-    objectFit:"contain"
+    objectFit: "contain",
   },
 });
 
@@ -29,10 +30,8 @@ const Home = () => {
 
   return (
     <>
-    <NavbarComponent/>
-    <div className={classes.container} onClick={handleClick}>
-      <img src={backgroundImage} alt="Home" className={classes.image} />
-    </div>
+      <NavbarComponent />
+      <ImageHome />
     </>
   );
 };

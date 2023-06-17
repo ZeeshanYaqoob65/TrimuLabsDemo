@@ -29,8 +29,8 @@ const useStyles = makeStyles({
   },
   shareButton: {
     position: "absolute",
-    top: "15px",
-    right: "18px",
+    top: "30px",
+    right: "20px",
     "@media (min-width: 800px)": {
       display: "none",
     },
@@ -41,8 +41,8 @@ const useStyles = makeStyles({
   },
   YouTube: {
     position: "absolute",
-    bottom: "10px",
-    left: "13px",
+    bottom: "30px",
+    left: "20px",
   },
 });
 

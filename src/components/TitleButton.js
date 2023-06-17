@@ -19,6 +19,9 @@ const useStyles = makeStyles({
     color: "white",
     width: "100%",
     textTransform: "uppercase",
+    "@media (max-width: 400px)": {
+      fontSize: 12,
+    },
     "@media (max-width: 350px)": {
       fontSize: 8,
     },
@@ -31,9 +34,6 @@ const useStyles = makeStyles({
 const TitleButton = ({ onClick, backgroundColor, icon, title }) => {
   const classes = useStyles({ backgroundColor });
 
-  useEffect(() => {
-    console.log(backgroundColor);
-  }, [backgroundColor]);
 
   return (
     <button className={classes.button} onClick={onClick}>
