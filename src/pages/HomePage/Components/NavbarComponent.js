@@ -31,7 +31,7 @@ const NavbarComponent = () => {
   const classes = useStyles();
 
   return (
-    <Navbar className={classes.navContainer} style={{backgroundColor: "#071740", position: "sticky"}} >
+    <Navbar className={classes.navContainer} style={{backgroundColor: "#edbe49", position: "sticky"}} >
    
         <Navbar.Brand href="#home">
           <img

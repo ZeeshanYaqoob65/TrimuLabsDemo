@@ -3,8 +3,6 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   button: {
-    
-  
     padding: "10px 20px",
     borderRadius: "8px",
     display: "flex",
@@ -18,7 +16,7 @@ const useStyles = makeStyles({
     fontStyle: "normal",
     fontSize: "12px",
     lineHeight: "17px",
-    textTransform: "uppercase",
+    textTransform: (props) => props.isUpperCase ==true  ?  "uppercase" :"",
     fontWeight:"500",
     gap:"5px"
 
@@ -29,8 +27,8 @@ const useStyles = makeStyles({
   },
 });
 
-const Button = ({ onClick, backgroundColor, icon, title ,color}) => {
-  const classes = useStyles({ backgroundColor,color });
+const Button = ({ onClick, backgroundColor, icon, title ,color , isUpperCase =true}) => {
+  const classes = useStyles({ backgroundColor,color, isUpperCase });
 
 
   return (

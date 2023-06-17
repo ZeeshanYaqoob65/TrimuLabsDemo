@@ -12,16 +12,22 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "100%",
     height: "auto",
+ 
   },
   overlay: {
     position: "absolute",
-    bottom: 10,
-    left: 10,
+    bottom: 50,
+    left: 50,
     color: "white",
   },
-  textContainer:{
-    display:'flex',
-    flexDirection:'column',
+  textContainer: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  text:{
+    fontSize:42,
+    color:"#FFFF",
+    fontWeight:"bold",
 
 
   }
@@ -35,8 +41,14 @@ const ImageHome = () => {
       <img src={homeImg} alt="Your Image" className={classes.image} />
       <div className={classes.overlay}>
         <div className={classes.textContainer}>
-          <span>Your Text</span>
-        <Button backgroundColor={"#FFFF"}/>
+          <div className={classes.text}>Missions</div>
+          <div  className={classes.text}>Made Easy</div>
+          <Button
+            backgroundColor={"#edbe49"}
+            title={"Login / Signup"}
+            isUpperCase={false}
+            color={"#FFFF"}
+          />
         </div>
       </div>
     </div>

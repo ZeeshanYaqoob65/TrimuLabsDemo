@@ -3,6 +3,9 @@ import { makeStyles } from "@mui/styles";
 import backgroundImage from "../../assests/images/home_page.jpg"; // Replace with the path to your image
 import NavbarComponent from "./Components/NavbarComponent";
 import ImageHome from "./Components/ImageHome";
+import TitleHome from "./Components/TitleHome";
+import DiscriptionHome from "./Components/DiscriptionHome";
+import FooterWeb from "../Mission/web/FooterWeb";
 
 const useStyles = makeStyles({
   container: {
@@ -32,8 +35,21 @@ const Home = () => {
     <>
       <NavbarComponent />
       <ImageHome />
+      <TitleHome />
+      <DiscriptionHome
+        text={
+          "Lorem Ipsum is simply dummy text of the printing and typeset. Lorem Ipsum is simply dummy text of the printing and typeset Lorem Ipsum is simply dummy text of the printing and typeset"
+        }
+      />
+      <DiscriptionHome
+        text={
+          "Lorem Ipsum is simply dummy text of the printing and typeset. Lorem Ipsum is simply dummy text of the printing and typeset Lorem Ipsum is simply dummy text of the printing and typeset.  of the printing and typeset. Lorem Ipsum is simply dummy text of the printing and typeset Lorem Ipsum is simply dummy text of the printing and typeset"
+        }
+      />
+      <FooterWeb />
     </>
   );
 };
 
 export default Home;
+
