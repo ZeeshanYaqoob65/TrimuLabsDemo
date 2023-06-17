@@ -131,7 +131,7 @@ export default function ImageComponent({
           <Button
             backgroundColor={"#E5202B"}
             onClick={()=>{
-              window.location=missionUrl
+              window.location.href=missionUrl
             }}
             title={`Live ${formattedDateTime}`}
             icon={Play}

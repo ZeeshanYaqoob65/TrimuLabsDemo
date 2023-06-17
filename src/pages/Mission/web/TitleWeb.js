@@ -129,7 +129,7 @@ export default function TitleWeb({
   const goal = new Intl.NumberFormat().format(goal_amount);
   const received = new Intl.NumberFormat().format(received_amount);
   const handleShareClick = () => {
-    window.location = missionUrl;
+    window.location.href = missionUrl;
   };
   const handleClick = () => {
     window.location.href = "https://www.youtube.com/watch?v=cv8Ee15MsNw";
