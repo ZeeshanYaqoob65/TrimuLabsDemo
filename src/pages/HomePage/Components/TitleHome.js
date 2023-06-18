@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
   },
   wrapper:{
     marginTop:20,
- 
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -27,7 +26,6 @@ const TitleHome = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.titleConatiner}>
-        {" "}
         Emails & Text with your great Purpose
       </div>
     </div>

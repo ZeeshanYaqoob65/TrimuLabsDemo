@@ -6,6 +6,8 @@ import ImageHome from "./Components/ImageHome";
 import TitleHome from "./Components/TitleHome";
 import DiscriptionHome from "./Components/DiscriptionHome";
 import FooterWeb from "../Mission/web/FooterWeb";
+import { HomeText, HomeText2 } from "./utils";
+import YoutubeHome from "./Components/YoutubeHome";
 
 const useStyles = makeStyles({
   container: {
@@ -36,20 +38,12 @@ const Home = () => {
       <NavbarComponent />
       <ImageHome />
       <TitleHome />
-      <DiscriptionHome
-        text={
-          "Lorem Ipsum is simply dummy text of the printing and typeset. Lorem Ipsum is simply dummy text of the printing and typeset Lorem Ipsum is simply dummy text of the printing and typeset"
-        }
-      />
-      <DiscriptionHome
-        text={
-          "Lorem Ipsum is simply dummy text of the printing and typeset. Lorem Ipsum is simply dummy text of the printing and typeset Lorem Ipsum is simply dummy text of the printing and typeset.  of the printing and typeset. Lorem Ipsum is simply dummy text of the printing and typeset Lorem Ipsum is simply dummy text of the printing and typeset"
-        }
-      />
+      <DiscriptionHome text={HomeText} />
+      <DiscriptionHome text={HomeText2} />
+      <YoutubeHome />
       <FooterWeb />
     </>
   );
 };
 
 export default Home;
-

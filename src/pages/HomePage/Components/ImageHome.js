@@ -16,9 +16,20 @@ const useStyles = makeStyles((theme) => ({
   },
   overlay: {
     position: "absolute",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "black",
+    left: 0,
+    top: 0,
+    opacity: "0.3",
+    zIndex: 2,
+  },
+  textOverlay: {
+    position: "absolute",
     bottom: 50,
     left: 50,
     color: "white",
+    zIndex: 3,
   },
   textContainer: {
     display: "flex",
@@ -44,14 +55,16 @@ const ImageHome = () => {
   return (
     <div className={classes.imageContainer}>
       <img src={homeImg} alt="Your Image" className={classes.image} />
-      <div className={classes.overlay}>
+      <div className={classes.overlay}></div>
+      <div className={classes.overlay}></div>
+      <div className={classes.textOverlay}>
         <div className={classes.textContainer}>
           <div className={classes.text}>Missions</div>
           <div className={classes.text}>Made Easy</div>
           <Button
             variant="contained"
             className={classes.buttonstyle}
-            sx={{ background: "#edbe49" }}
+            sx={{ background: "#edbe49",width:145 }}
           >
             Login / Signup
           </Button>
