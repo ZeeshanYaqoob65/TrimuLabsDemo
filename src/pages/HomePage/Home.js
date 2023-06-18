@@ -36,9 +36,9 @@ const Home = () => {
       <TitleHome />
       <DiscriptionHome text={HomeText} />
       <DiscriptionHome text={HomeText2} />
-      {/* <div style={{ marginTop: 20 }}>
+      <div style={{ marginTop: 20 }}>
         <YoutubeHome />
-      </div> */}
+      </div>
       <FooterWeb />
     </>
   );
