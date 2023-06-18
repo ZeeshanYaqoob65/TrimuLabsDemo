@@ -73,7 +73,7 @@ const FooterWeb = () => {
           <img src={footer} alt="Footer Image" className={classes.image} />
         </div>
         <div>
-          <Link to="/terms-and-conditions" className={classes.link}>
+          <Link to="/terms" className={classes.link}>
             Terms and Conditions
           </Link>
         </div>
