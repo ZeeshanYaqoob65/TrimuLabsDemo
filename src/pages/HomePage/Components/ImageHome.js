@@ -38,9 +38,11 @@ const useStyles = makeStyles((theme) => ({
   text: {
     fontSize: 54,
     color: "#FFFF",
-    fontWeight: "bold",
+    lineHeight: "60px",
+
     "@media (max-width: 800px)": {
       fontSize: 34,
+      lineHeight: "45px",
     },
   },
   buttonstyle: {
@@ -51,6 +53,11 @@ const useStyles = makeStyles((theme) => ({
 
 const ImageHome = () => {
   const classes = useStyles();
+
+  const handleClick = () => {
+    const URLS = "https://apps.apple.com/app/seedforme/id1554240967";
+    window.open(URLS, "_blank");
+  };
 
   return (
     <div className={classes.imageContainer}>
@@ -64,7 +71,13 @@ const ImageHome = () => {
           <Button
             variant="contained"
             className={classes.buttonstyle}
-            sx={{ background: "#edbe49",width:145 }}
+            sx={{
+              background: "#edbe49",
+              width: 145,
+              marginTop: "2px",
+              textTransform: "capitalize",
+            }}
+            onClick={handleClick}
           >
             Login / Signup
           </Button>

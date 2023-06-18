@@ -29,10 +29,6 @@ const useStyles = makeStyles({
 const Home = () => {
   const classes = useStyles();
 
-  const handleClick = () => {
-    window.location.href = "https://apps.apple.com/app/seedforme/id1554240967"; // Replace with your desired URL
-  };
-
   return (
     <>
       <NavbarComponent />
@@ -40,7 +36,9 @@ const Home = () => {
       <TitleHome />
       <DiscriptionHome text={HomeText} />
       <DiscriptionHome text={HomeText2} />
-      <YoutubeHome />
+      {/* <div style={{ marginTop: 20 }}>
+        <YoutubeHome />
+      </div> */}
       <FooterWeb />
     </>
   );

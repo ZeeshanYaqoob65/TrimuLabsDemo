@@ -90,7 +90,7 @@ export default function TitleWeb({
   eventStartTime,
   eventEndTime,
   missionUrl,
-  payment_keys
+  payment_keys,
 }) {
   const [isBetweenTimeRange, setIsBetweenTimeRange] = useState(false);
 
@@ -246,7 +246,11 @@ export default function TitleWeb({
             />
           </div>
         )}
-
+        {!title && (
+          <div className={classes.title}>
+            Sample Title – Medical Mission Country Name Philippines Homeless
+          </div>
+        )}
         <div className={classes.title}>{title}</div>
         <div className={classes.amount}>
           ${received} Of ${goal}

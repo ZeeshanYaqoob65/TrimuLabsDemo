@@ -48,16 +48,15 @@ export default function Mission() {
 
   const dividedByTwo = screenWidth / 2;
   const leftWidth = screenWidth - 400;
-  const webImagesWidth = (leftWidth /3) -10;
+  const webImagesWidth = leftWidth / 3 - 10;
   const classes = useStyles({ dividedByTwo, leftWidth });
-  const prayerButtonWidth =screenWidth/10;
+  const prayerButtonWidth = screenWidth / 10;
 
   const [missionData, setMissionData] = useState();
   const [missionEvent, setMissionEvent] = useState([]);
   const [eventImages, setEventImages] = useState([]);
   const [missionPrayer, setMissionPrayer] = useState([]);
   const [StateDisclosures, setStateDiscloures] = useState([]);
-
 
   const getCharityGraph = (charityName) => {
     const data = `Financial info and charitable purpose, programs, and activities is either above, or can be obtained by contacting ${charityName}, and or as stated below.\n\nDonations go direct to ${charityName} via PayPal preferenced for missionary or minister (worker’s role and budget with charity). SeedForMe does not receive donation money or fees from PayPal. Preferencing support for worker is secondary to gifts use by the charity. Worker’s mission or ministry is to be conducted under direction of the charity and its board approves worker’s budget`;
@@ -71,13 +70,12 @@ export default function Mission() {
           `https://seedapis.seedforme.com/api/v1/mission/${id}`
         );
         const data = await response.json();
-      
+
         setMissionData(data.data);
         setMissionEvent(data.data.mission_events);
         setEventImages(data.data.gallery);
         setMissionPrayer(data.data.mission_prayers);
         setStateDiscloures(data.data.state_disclosure);
-
       } catch (error) {
         console.error("Error fetching mission data:", error);
       }
@@ -216,7 +214,11 @@ export default function Mission() {
             <div className={classes.mainContainer}>
               <div className={classes.left}>
                 <Paragraph
-                  text={missionData.mission.mission_details}
+                  text={
+                    missionData.mission.mission_details
+                      ? missionData.mission.mission_details
+                      : textParagaph
+                  }
                   lineLimit={10}
                 />
                 <div style={{ marginTop: 30, marginBottom: 15 }}>
@@ -236,7 +238,10 @@ export default function Mission() {
                 </div>
                 {eventImages.length > 0 && (
                   <>
-                    <CharityImages imageUrls={eventImages} webImagesWidth={webImagesWidth} />
+                    <CharityImages
+                      imageUrls={eventImages}
+                      webImagesWidth={webImagesWidth}
+                    />
                   </>
                 )}
                 {!missionPrayer.length <= 0 && (
@@ -245,7 +250,6 @@ export default function Mission() {
                       <>
                         {mission.prayer_text !== null ? (
                           <RequestPrayer
-                          
                             index={index}
                             Prayer={mission.prayer_text}
                             prayerButtonWidth={prayerButtonWidth}
@@ -275,8 +279,16 @@ export default function Mission() {
                           />
                         </>
                       )}
-                      <ParagraphText text={charityText} isUppercase={false} fontSize={10}/>
-                      <ParagraphText text={DontationText} isUppercase={true} fontSize={10} />
+                      <ParagraphText
+                        text={charityText}
+                        isUppercase={false}
+                        fontSize={10}
+                      />
+                      <ParagraphText
+                        text={DontationText}
+                        isUppercase={true}
+                        fontSize={10}
+                      />
                     </div>
                   </div>
                 </div>

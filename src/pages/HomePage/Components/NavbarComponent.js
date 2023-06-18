@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import Container from "react-bootstrap/Container";
+
 import Navbar from "react-bootstrap/Navbar";
-import logo from "../../../assests/images/seed_for_me_white.png"
+import logo from "../../../assests/images/seed_for_me_white.png";
 
 const useStyles = makeStyles({
   container: {
@@ -19,30 +19,34 @@ const useStyles = makeStyles({
     height: "100%",
     objectFit: "contain",
   },
-  navContainer:{
-    position:"sticky",
-    top:0,
-    left:0,
-    paddingLeft:40,
-  }
+  navContainer: {
+    position: "sticky",
+    top: 0,
+    left: 0,
+    paddingLeft: 40,
+ 
+  },
+ 
 });
 
 const NavbarComponent = () => {
   const classes = useStyles();
 
   return (
-    <Navbar className={classes.navContainer} style={{backgroundColor: "#edbe49", position: "sticky",zIndex:4}} >
-   
-        <Navbar.Brand href="#home">
-          <img
-            src={logo}
-            width="100%"
-            height="30"
-            className={classes.navbarstyle}
-            alt="React Bootstrap logo"
-          />
-        </Navbar.Brand>
-
+    <Navbar
+      className={classes.navContainer}
+      style={{ backgroundColor: "#edbe49", position: "sticky", zIndex: 4 }}
+    >
+      <Navbar.Brand >
+        <img
+          src={logo}
+          width={160}
+          height={30}
+       
+          className={classes.navbarstyle}
+          alt="React Bootstrap logo"
+        />
+      </Navbar.Brand>
     </Navbar>
   );
 };

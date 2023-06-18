@@ -6,18 +6,17 @@ const useStyles = makeStyles((theme) => ({
   titleConatiner: {
     maxWidth: "600px",
     fontSize: "12px",
-    fontWeight: "200",
     textAlign: "center",
-
-    color: "#464646",
+    color: "black",
   },
   wrapper: {
     marginTop: 20,
-
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
+    paddingLeft:40,
+    paddingRight:40,
   },
 }));
 

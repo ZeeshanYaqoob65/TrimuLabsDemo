@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     background: "#3971AE",
     maxWidth: "800px",
     width: "100%",
-    padding: "19px",
+    padding: "19px !important",
   },
   title: {
     fontFamily: "Inter",
@@ -21,6 +21,7 @@ const useStyles = makeStyles({
     fontSize: "32px",
     lineHeight: "38px",
     color: "#FFFFFF",
+    overflow:"none",
   },
   amount: {
     fontFamily: "Inter",

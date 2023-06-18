@@ -21,6 +21,7 @@ const YoutubeHome = () => {
           <img
             src={youtubeLOgo} // Replace with the actual YouTube logo image URL
             alt="YouTube Logo"
+            onClick={handleClick}
             style={{
               position: "absolute",
               top: "50%",

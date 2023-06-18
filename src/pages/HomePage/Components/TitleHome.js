@@ -4,9 +4,9 @@ import homeImg from "../../../assests/images/home_title_img.jpg";
 import Button from "../../../components/Button";
 const useStyles = makeStyles((theme) => ({
   titleConatiner: {
-    maxWidth: "250px",
-    fontSize: "18px",
-    fontWeight: "bold",
+    maxWidth: "300px",
+    fontSize: "22px",
+    fontWeight: 700,
     textAlign:'center',
     textTransform:"uppercase"
 
