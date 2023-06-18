@@ -4,6 +4,7 @@ import ErrorMessge from "../pages/ErrorMessage";
 
 import Mission from "../pages/Mission/Mission";
 import Home from "../pages/HomePage/Home";
+import Terms from "../pages/Terms/Terms";
 
 const Routes = createBrowserRouter([
   {
@@ -14,6 +15,11 @@ const Routes = createBrowserRouter([
   {
     path: "/:id/do_good_things",
     element: <Mission />,
+    errorElement: <ErrorMessge />,
+  },
+  {
+    path: "/terms",
+    element: <Terms />,
     errorElement: <ErrorMessge />,
   },
 ]);
