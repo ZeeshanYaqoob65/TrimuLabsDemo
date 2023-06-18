@@ -177,7 +177,7 @@ const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
           className={classes.input}
         />
         <div className={classes.priceContainer}>
-          Now At ${receivedAmount} of ${total} Goal{" "}
+          Now At ${receivedAmount} Of ${total} Goal{" "}
         </div>
         <TextField
           label="Your Name"
