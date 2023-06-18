@@ -80,7 +80,7 @@ const RequestPrayer = ({ index, Prayer }) => {
     <div className={classes.wrapper} key={index}>
       <div className={classes.container}>
         <div className={classes.dataContaier}>
-          <div className={classes.title}>Request Prayer</div>
+          <div className={classes.title}>Prayer Request</div>
           <div className={classes.description}>{Prayer}</div>
         </div>
 

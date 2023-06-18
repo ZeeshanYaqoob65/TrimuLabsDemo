@@ -4,7 +4,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   button: {
     padding: "10px 20px",
-    borderRadius: "8px",
+    borderRadius: "6px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     border: "none",
     outline: "none",
     fontStyle: "normal",
-    fontSize: "12px",
+    fontSize: "14px",
     lineHeight: "17px",
     textTransform: (props) => props.isUpperCase ==true  ?  "uppercase" :"",
     fontWeight:"500",

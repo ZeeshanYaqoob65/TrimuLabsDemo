@@ -46,7 +46,6 @@ export default function TitleComponent({
 }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
- 
 
   const handleOpen = () => {
     setOpen(true);
@@ -64,8 +63,19 @@ export default function TitleComponent({
 
   return (
     <>
-      <ModalComponent open={open} onClose={handleClose} total={goal_amount} received={received_amount} payment_keys={payment_keys}/>
+      <ModalComponent
+        open={open}
+        onClose={handleClose}
+        total={goal_amount}
+        received={received_amount}
+        payment_keys={payment_keys}
+      />
       <Container className={classes.container}>
+        {!title && (
+          <div className={classes.title}>
+            Sample Title – Medical Mission Country Name Philippines Homeless
+          </div>
+        )}
         <div className={classes.title}>{title}</div>
         <div className={classes.amount}>
           ${received} of ${goal}

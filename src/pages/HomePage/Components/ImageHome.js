@@ -1,7 +1,8 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import homeImg from "../../../assests/images/home_title_img.jpg";
-import Button from "../../../components/Button";
+import Button from "@mui/material/Button";
+
 const useStyles = makeStyles((theme) => ({
   imageContainer: {
     position: "relative",
@@ -12,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "100%",
     height: "auto",
- 
   },
   overlay: {
     position: "absolute",
@@ -24,13 +24,18 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
-  text:{
-    fontSize:42,
-    color:"#FFFF",
-    fontWeight:"bold",
-
-
-  }
+  text: {
+    fontSize: 54,
+    color: "#FFFF",
+    fontWeight: "bold",
+    "@media (max-width: 800px)": {
+      fontSize: 34,
+    },
+  },
+  buttonstyle: {
+    color: "#FFFF",
+    backgroundColor: "#edbe49",
+  },
 }));
 
 const ImageHome = () => {
@@ -42,13 +47,14 @@ const ImageHome = () => {
       <div className={classes.overlay}>
         <div className={classes.textContainer}>
           <div className={classes.text}>Missions</div>
-          <div  className={classes.text}>Made Easy</div>
+          <div className={classes.text}>Made Easy</div>
           <Button
-            backgroundColor={"#edbe49"}
-            title={"Login / Signup"}
-            isUpperCase={false}
-            color={"#FFFF"}
-          />
+            variant="contained"
+            className={classes.buttonstyle}
+            sx={{ background: "#edbe49" }}
+          >
+            Login / Signup
+          </Button>
         </div>
       </div>
     </div>

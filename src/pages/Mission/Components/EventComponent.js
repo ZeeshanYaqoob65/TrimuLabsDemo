@@ -17,16 +17,14 @@ const useStyles = makeStyles({
       borderRadius: "10px",
       overflow: "hidden",
       position: "relative",
-      width:"358px",
-      width:"100%"
-
-    
+      width: "358px",
+      width: "100%",
     },
   },
   image: {
     width: "149px",
-    height:"100%",
-    objectFit:"cover",
+    height: "100%",
+    objectFit: "cover",
     "@media (min-width: 800px)": {
       width: "100%",
       height: "100%",
@@ -44,18 +42,22 @@ const useStyles = makeStyles({
     fontSize: "16px",
     fontWeight: 700,
     marginBottom: "20px",
-    lineHeight: "20px",
     color: "#000000",
   },
   eventDate: {
     fontSize: "16px",
     fontWeight: 500,
     lineHeight: "20px",
+    color: "black",
+    opacity: "0.6",
+    textTransform: "uppercase",
   },
   eventTime: {
     fontSize: "16px",
     marginBottom: "8px",
     lineHeight: "20px",
+    color: "black",
+    opacity: "0.6",
   },
   liveButton: {
     fontSize: "20px",
@@ -66,7 +68,7 @@ const useStyles = makeStyles({
     border: "none",
     borderRadius: "10px",
     cursor: "pointer",
-    backgroundColor: "#E22432",
+    backgroundColor: "#FF0000",
     "@media (min-width: 800px)": {
       display: "none",
     },
@@ -127,7 +129,7 @@ const EventComponent = ({
   eventEndTime,
   missionImage,
   missionUrl,
-  index
+  index,
 }) => {
   const [isBetweenTimeRange, setIsBetweenTimeRange] = useState(false);
   useEffect(() => {
@@ -173,7 +175,6 @@ const EventComponent = ({
   const option = { hour: "numeric", minute: "2-digit", hour12: true };
   const STARTTIME = STARTtiME.toLocaleTimeString("en-US", option);
 
-
   const renderIcon = () => {
     if (eventType === 0) {
       return <img src={youtube} alt="YouTube Icon" className={classes.icon} />;
@@ -186,14 +187,20 @@ const EventComponent = ({
   const handleImgClick = () => {
     window.location.href = missionUrl;
   };
-  const handleClick=()=>{
-    window.location.href=missionUrl;
-  }
+  const handleClick = () => {
+    window.location.href = missionUrl;
+  };
 
   return (
     <div className={classes.container} key={index}>
       {isBetweenTimeRange && (
-        <div className={classes.buttonWebLive}  role="button" onClick={handleClick}>LIVE ONLINE</div>
+        <div
+          className={classes.buttonWebLive}
+          role="button"
+          onClick={handleClick}
+        >
+          LIVE ONLINE
+        </div>
       )}
 
       <div className={classes.background} onClick={handleImgClick}>

@@ -10,18 +10,17 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    margin: "21px auto",
+    margin: "21px auto 0px auto",
 
     "@media (min-width: 800px)": {
       display: "flex",
       justifyContent: "flex-start",
       alignItems: "center",
-      flexDirection:"row",
-      gap:40,
-      textAlign:"left",
-      margin :"0px",
-      padding:20,
-
+      flexDirection: "row",
+      gap: 40,
+      textAlign: "left",
+      margin: "0px",
+      padding: 20,
     },
   },
   image: {
@@ -31,21 +30,23 @@ const useStyles = makeStyles({
   charityName: {
     fontSize: "18px",
     fontWeight: 500,
-   
-    marginTop: "9px",
+    textAlign: "center",
+    marginTop: "10px",
   },
   charityAddress: {
     fontSize: "12px",
     color: "#7A7A7A",
+    textAlign: "center",
   },
   contactInfo: {
     fontSize: "12px",
     color: "#7A7A7A",
+    textAlign: "center",
   },
   irsText: {
     fontSize: "12px",
-
     color: "#7A7A7A",
+    textAlign: "center",
   },
 });
 

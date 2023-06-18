@@ -22,7 +22,7 @@ import CharityComponent from "./Components/CharityComponent";
 import Footer from "./Components/Footer";
 import ParagraphText from "./Components/ParagraphText";
 
-import { DontationText } from "./utils";
+import { DontationText, textParagaph } from "./utils";
 import StateDisclosure from "./Components/StateDisclosure";
 import { Box, CircularProgress } from "@mui/material";
 import TitleWeb from "./web/TitleWeb";
@@ -87,8 +87,9 @@ export default function Mission() {
             />
 
             <div style={{ paddingBottom: "30px", marginTop: 20 }}>
+             
               <Paragraph
-                text={missionData.mission.mission_details}
+                text={missionData.mission.mission_details ? missionData.mission.mission_details : textParagaph }
                 lineLimit={10}
               />
             </div>

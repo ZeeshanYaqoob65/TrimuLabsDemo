@@ -10,7 +10,9 @@ const useStyles = makeStyles({
     scrollBehavior: "smooth",
     width: "100%",
     marginTop: "10px",
-    marginBottom:"10px",
+    marginBottom: "10px",
+    paddingLeft: "12px",
+    paddingRight: "12px",
     "-ms-overflow-style": "none" /* IE and Edge */,
     scrollbarWidth: "none" /* Firefox */,
     "&::-webkit-scrollbar": {
@@ -49,7 +51,7 @@ const CharityImages = ({ id, imageUrls }) => {
               }`}
             >
               <img
-              key={index}
+                key={index}
                 src={`${BASE_URL}${imageUrl.picture_path}`}
                 alt={`Image ${index + 1}`}
                 className={classes.slideImage}

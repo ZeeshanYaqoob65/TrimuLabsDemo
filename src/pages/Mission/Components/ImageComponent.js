@@ -129,13 +129,14 @@ export default function ImageComponent({
       {isBetweenTimeRange && (
         <div className={classes.YouTube}>
           <Button
-            backgroundColor={"#E5202B"}
+            backgroundColor={"#FF0000"}
             onClick={()=>{
               window.location.href=missionUrl
             }}
             title={`Live ${formattedDateTime}`}
             icon={Play}
             color="#FFFF"
+            isUpperCase={false}
           />
         </div>
       )}

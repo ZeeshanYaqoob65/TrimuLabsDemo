@@ -7,12 +7,11 @@ const useStyles = makeStyles({
     fontStyle: "normal",
     fontWeight: 400,
     fontSize: "12px",
-    lineHeight: "14px",
-    color: "#888888",
+    color: "#7A7A7A",
     textTransform: (props) => (props.isUppercase ? "uppercase" : "none"),
   },
   wrapper: {
-    padding: "10px",
+    padding: "10px 10px 0px 10px",
   },
   container: {},
 });

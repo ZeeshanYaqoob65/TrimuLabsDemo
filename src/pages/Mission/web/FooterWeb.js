@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     padding: "10px",
     textAlign: "center",
 
-    backgroundColor: "#6D6E70",
+    backgroundColor: "#3d3d3d",
     minHeight: 188,
     height: "100%",
   },

@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import logo from "../../../assests/images/seed_for_me.png"
+import logo from "../../../assests/images/seed_for_me_white.png"
 
 const useStyles = makeStyles({
   container: {
