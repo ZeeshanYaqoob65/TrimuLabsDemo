@@ -31,8 +31,25 @@ import EventComponentWeb from "./web/EventComponentWeb";
 import FooterWeb from "./web/FooterWeb";
 
 export default function Mission() {
-  const classes = useStyles();
   const { id } = useParams();
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const dividedByTwo = screenWidth / 2;
+  const leftWidth = screenWidth - 400;
+
+  const classes = useStyles({ dividedByTwo, leftWidth });
 
   const [missionData, setMissionData] = useState();
   const [missionEvent, setMissionEvent] = useState([]);
@@ -87,9 +104,12 @@ export default function Mission() {
             />
 
             <div style={{ paddingBottom: "30px", marginTop: 20 }}>
-             
               <Paragraph
-                text={missionData.mission.mission_details ? missionData.mission.mission_details : textParagaph }
+                text={
+                  missionData.mission.mission_details
+                    ? missionData.mission.mission_details
+                    : textParagaph
+                }
                 lineLimit={10}
               />
             </div>
@@ -207,7 +227,9 @@ export default function Mission() {
                     imageSrc={profileImg}
                   />
                 </div>
-                <Paragraph text={missionData.user.about_us} lineLimit={4} />
+                <div style={{ marginBottom: 25 }}>
+                  <Paragraph text={missionData.user.about_us} lineLimit={5} />
+                </div>
                 {eventImages.length > 0 && (
                   <>
                     <CharityImages imageUrls={eventImages} />
@@ -247,8 +269,8 @@ export default function Mission() {
                           />
                         </>
                       )}
-                      <ParagraphText text={charityText} isUppercase={false} />
-                      <ParagraphText text={DontationText} isUppercase={true} />
+                      <ParagraphText text={charityText} isUppercase={false} fontSize={10}/>
+                      <ParagraphText text={DontationText} isUppercase={true} fontSize={10} />
                     </div>
                   </div>
                 </div>
@@ -324,23 +346,19 @@ const useStyles = makeStyles({
   },
   header: {
     display: "flex",
-    maxHieght: "600px !important",
-    height: "100%",
-    "@media (min-width: 800px)": {
-      minHieght: "600px !important",
-    },
+    height: (props) => (props.dividedByTwo ? props.dividedByTwo : "600px"),
   },
   mainContainer: {
     display: "flex",
-    gap: "35px",
-    marginTop: "50px",
-    padding: "30px",
+    gap: "50px",
+    marginTop: "60px",
+    padding: "0px 40px 0px 60px",
   },
   left: {
-    width: "80%",
+    width: (props) => (props.leftWidth ? props.leftWidth : "500px"),
   },
   right: {
-    width: "20%",
+    width: "250px !important",
   },
   charityContainer: {
     border: "1px solid #E0E0E0",

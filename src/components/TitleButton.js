@@ -25,15 +25,16 @@ const useStyles = makeStyles({
     "@media (max-width: 350px)": {
       fontSize: 8,
     },
-    "&:hover": {
-      backgroundColor: "#41B6D2",
+    "@media (min-width: 800px)": {
+      "&:hover": {
+        backgroundColor: "#41B6D2",
+      },
     },
   },
 });
 
 const TitleButton = ({ onClick, backgroundColor, icon, title }) => {
   const classes = useStyles({ backgroundColor });
-
 
   return (
     <button className={classes.button} onClick={onClick}>

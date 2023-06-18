@@ -24,6 +24,7 @@ const useStyles = makeStyles({
     width: "305px",
     height: "305px",
     marginRight: "11px",
+    
   },
   slideLastChild: {
     marginRight: "0",

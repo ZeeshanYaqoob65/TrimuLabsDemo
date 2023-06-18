@@ -18,8 +18,11 @@ const useStyles = makeStyles({
     lineHeight: "17px",
     textTransform: (props) => props.isUpperCase ==true  ?  "uppercase" :"",
     fontWeight:"500",
-    gap:"5px"
-
+    gap:"5px",
+    
+    "&:hover": {
+      backgroundColor: "#d5d5d5",
+    },
   },
   icon: {
     width:"16px",

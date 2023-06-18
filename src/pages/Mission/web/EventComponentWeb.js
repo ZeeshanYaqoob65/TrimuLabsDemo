@@ -16,8 +16,8 @@ const useStyles = makeStyles({
       borderRadius: "10px",
       overflow: "hidden",
       position: "relative",
-      width:"358px",
-      width:"100%"
+      width:"250px !important",
+    
 
     
     },

@@ -30,8 +30,8 @@ const useStyles = makeStyles({
     fontFamily: "Inter",
     fontStyle: "normal",
     fontWeight: 700,
-    fontSize: "22px",
-    lineHeight: "28px",
+    fontSize: "35px",
+    lineHeight: "40px",
     color: "#FFFFFF",
     textAlign: "center !important",
   },
@@ -39,11 +39,12 @@ const useStyles = makeStyles({
     fontFamily: "Inter",
     fontStyle: "normal",
     fontWeight: 700,
-    fontSize: "20px",
-    lineHeight: "23px",
+    fontSize: "24px",
+    lineHeight: "30px",
     color: "#EDBE49",
     marginTop: "12px",
     marginBottom: "18px",
+    textAlign: "center",
   },
   buttons: {
     display: "flex",
@@ -61,16 +62,25 @@ const useStyles = makeStyles({
     gap: 10,
     color: "white",
     position: "absolute",
-    top: 20,
-    right: 30,
+    top: 30,
+    right: 20,
   },
-  iconMail:{
-    filter: 'invert(100%) brightness(1000) contrast(1000)',
-    width:26,
+  shareText: {
+    fontSize: 16,
   },
-  icons:{
-    width:26,
-  }
+  iconMail: {
+    filter: "invert(100%) brightness(1000) contrast(1000)",
+    width: 26,
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+  icons: {
+    width: 26,
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
 });
 
 export default function TitleWeb({
@@ -99,6 +109,7 @@ export default function TitleWeb({
 
     checkTimeRange();
   }, []);
+
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -124,6 +135,7 @@ export default function TitleWeb({
     });
     return `${formattedDate} ${formattedTime}`;
   };
+  const URL = window.location.href;
 
   const formattedDateTime = formatDateAndTime(eventEndTime);
   const goal = new Intl.NumberFormat().format(goal_amount);
@@ -133,6 +145,39 @@ export default function TitleWeb({
   };
   const handleClick = () => {
     window.location.href = "https://www.youtube.com/watch?v=cv8Ee15MsNw";
+  };
+
+  const handleFacebookShare = () => {
+    const facebookUrl = `https://www.facebook.com/share.php?u=${encodeURIComponent(
+      URL
+    )}`;
+    window.open(facebookUrl);
+  };
+
+  const handleTwitterShare = () => {
+    const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+      URL
+    )}&text=`;
+    window.open(twitterUrl);
+  };
+
+  const handleEmailShare = () => {
+    const emailUrl = `mailto:?&subject=&cc=&bcc=&body=${encodeURIComponent(
+      URL
+    )}`;
+    window.location.href = emailUrl;
+  };
+  const handleWhatsAppShare = () => {
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+      URL
+    )}`;
+    window.open(whatsappUrl);
+  };
+
+  const handleSMSShare = () => {
+    const message = "";
+    const smsUrl = `sms:&body=${encodeURIComponent(message + URL)}`;
+    window.location.href = smsUrl;
   };
 
   return (
@@ -145,48 +190,68 @@ export default function TitleWeb({
       />
       <Container className={classes.container}>
         <div className={classes.share}>
-          <div>Share Mission</div>
+          <div className={classes.shareText}>Share Mission</div>
           <div>
-            {" "}
-            <img src={faceBook} alt="Button Icon" className={classes.icons} />
+            <img
+              src={faceBook}
+              alt="Button Icon"
+              className={classes.icons}
+              onClick={handleFacebookShare}
+            />
           </div>
           <div>
-            <img src={twitter} alt="Button Icons" className={classes.icons} />
+            <img
+              src={twitter}
+              alt="Button Icons"
+              className={classes.icons}
+              onClick={handleTwitterShare}
+            />
           </div>
           <div>
-            <img src={whatsapp} alt="Button Icons" className={classes.icons} />
+            <img
+              src={whatsapp}
+              alt="Button Icons"
+              className={classes.icons}
+              onClick={handleWhatsAppShare}
+            />
           </div>
           <div>
-            <img src={message} alt="Button Icons" className={classes.icons} />
+            <img
+              src={message}
+              alt="Button Icons"
+              className={classes.icons}
+              onClick={handleSMSShare}
+            />
           </div>
           <div>
             <img
               src={mailbox}
               alt="Button Icon"
               className={classes.iconMail}
-              
+              onClick={handleEmailShare}
             />
           </div>
         </div>
         {isBetweenTimeRange && (
           <div className={classes.YouTube}>
             <Button
-              backgroundColor={"#E5202B"}
+              backgroundColor={"#FF0000"}
               onClick={handleShareClick}
               title={`Live ${formattedDateTime}`}
               icon={Play}
               color="#FFFF"
+              isUpperCase={false}
             />
           </div>
         )}
 
         <div className={classes.title}>{title}</div>
         <div className={classes.amount}>
-          ${received} of ${goal}
+          ${received} Of ${goal}
         </div>
         <div className={classes.buttons}>
           <TitleButton title="Donate" onClick={handleOpen} />
-          <TitleButton title="Selling Property ?" onClick={handleClick} />
+          <TitleButton title="Selling Property?" onClick={handleClick} />
         </div>
       </Container>
     </>

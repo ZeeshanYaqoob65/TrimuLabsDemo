@@ -17,9 +17,7 @@ const useStyles = makeStyles({
     margin: "0px auto",
     paddingBottom: "100%", // Set the height based on width as a percentage
     position: "relative",
-    maxHeight: "800px",
     fontWeight: "500px !important",
-    height: "600px",
 
     "@media (min-width: 800px)": {
       display: "block",

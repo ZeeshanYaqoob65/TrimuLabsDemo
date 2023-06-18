@@ -9,6 +9,10 @@ const useStyles = makeStyles({
     fontSize: "12px",
     color: "#7A7A7A",
     textTransform: (props) => (props.isUppercase ? "uppercase" : "none"),
+    "@media (min-width: 800px)": {
+     fontSize:"10px"
+    },
+    
   },
   wrapper: {
     padding: "10px 10px 0px 10px",

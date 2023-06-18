@@ -4,7 +4,14 @@ import Button from "@mui/material/Button";
 import Ameen from "../../../assests/images/prayer_img.png";
 
 const useStyles = makeStyles({
-  wrapper: { padding: "12px" },
+  wrapper: {
+    padding: "12px",
+    "@media (min-width: 800px)": {
+      padding: "0px",
+      marginTop: "30px",
+      marginBottom: "30px",
+    },
+  },
   container: {
     display: "flex",
     justifyContent: "center",
@@ -13,7 +20,7 @@ const useStyles = makeStyles({
     background: " #384885",
     borderRadius: "10px",
     width: "100%",
-    padding: "16px 11px 23px 13px",
+    padding: "12px 11px 23px 13px",
     textAlign: "center",
 
     "@media (min-width: 800px)": {
@@ -23,9 +30,9 @@ const useStyles = makeStyles({
       flexDirection: "row",
       textAlign: "left",
       gap: "35px",
-      maxHeight: "221px",
+      minHeight: "221px",
       height: "100%",
-      padding: "20px",
+      padding: "20px 30px 20px 30px",
     },
   },
   title: {
@@ -35,12 +42,23 @@ const useStyles = makeStyles({
     lineHeight: "33px",
     textTransform: "uppercase",
     color: "#FFFF",
+    "@media (min-width: 800px)": {
+      marginBottom: "10px",
+    },
+
   },
   description: {
     fontSize: "14px",
     color: "#FFFF",
     fontWeight: 400,
     marginBottom: "10px",
+  },
+  ameen:{
+    "@media (min-width: 800px)": {
+     fontSize:"10px",
+     textTransform:"uppercase",
+
+    },
   },
   button: {
     fontSize: "16px",
@@ -65,10 +83,14 @@ const useStyles = makeStyles({
     width: "30px",
     height: "33px",
     marginRight: "5.81px",
+    "@media (min-width: 800px)": {
+      width: "30px",
+      height: "30px",
+    },
   },
   dataContaier: {
     "@media (min-width: 800px)": {
-      padding: "9px 0px 9px 19px",
+      padding: "10px 0px 9px 19px",
     },
   },
 });
@@ -76,6 +98,7 @@ const useStyles = makeStyles({
 const RequestPrayer = ({ index, Prayer }) => {
   const classes = useStyles();
 
+  
   return (
     <div className={classes.wrapper} key={index}>
       <div className={classes.container}>
@@ -89,7 +112,7 @@ const RequestPrayer = ({ index, Prayer }) => {
             <div>
               <img src={Ameen} className={classes.icon} />
             </div>
-            <div>Click to Ameen</div>
+            <div className={classes.ameen}>Click to Ameen</div>
           </button>
         </div>
       </div>

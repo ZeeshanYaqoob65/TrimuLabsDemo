@@ -10,7 +10,7 @@ const useStyles = makeStyles({
 
     "@media (min-width: 800px)": {
       height: "278px !important",
-      borderRadius: 20,
+      borderRadius: 10,
       overflow: "hidden",
     },
   },
@@ -29,23 +29,30 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    "@media (min-width: 800px)": {
+      padding: "20px !important",
+    },
   },
   name: {
     fontStyle: "normal",
     fontWeight: 700,
     fontSize: "16px",
     lineHeight: "19px",
-
     color: "#FFFFFF",
+    "@media (min-width: 800px)": {
+      fontSize: "22px !important",
+    },
   },
   address: {
     marginTop: "5px",
     fontStyle: "normal",
     fontWeight: 400,
     fontSize: "12px",
-    lineHeight: "15px",
-
+    lineHeight: "30px",
     color: "#FFFFFF",
+    "@media (min-width: 800px)": {
+      fontSize: "18px !important",
+    },
   },
   letsTalk: {
     marginTop: "7px",
@@ -53,21 +60,29 @@ const useStyles = makeStyles({
     alignItems: "center",
     gap: "4px",
     fontStyle: "normal",
-
     fontSize: "14px",
     lineHeight: "15px",
     textTransform: "uppercase",
     color: "#FFF065",
+    "@media (min-width: 800px)": {
+      fontSize: "20px !important",
+      "&:hover": {
+        cursor: "pointer",
+      },
+    },
   },
   icon: {
     width: "20px",
     height: "20px",
+    "@media (min-width: 800px)": {
+      width: "35px",
+      height: "35px",
+    },
   },
-  businessTag:{
-    textTransform:"uppercase"
-  }
+  businessTag: {
+    textTransform: "uppercase",
+  },
 });
-
 
 const ProfileContainer = ({
   name,
@@ -79,8 +94,6 @@ const ProfileContainer = ({
 }) => {
   const classes = useStyles();
   const handleLetsTalkClick = () => {
-    console.log("handle clocke");
-
     try {
       const isMobile =
         typeof navigator !== "undefined" &&

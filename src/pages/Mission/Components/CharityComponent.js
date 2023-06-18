@@ -26,27 +26,43 @@ const useStyles = makeStyles({
   image: {
     width: "140px",
     height: "140px",
+    "@media (min-width: 800px)": {
+      width: "100px",
+      height: "100px",
+    },
   },
   charityName: {
     fontSize: "18px",
     fontWeight: 500,
     textAlign: "center",
     marginTop: "10px",
+    "@media (min-width: 800px)": {
+      textAlign: "left",
+    },
   },
   charityAddress: {
     fontSize: "12px",
     color: "#7A7A7A",
     textAlign: "center",
+    "@media (min-width: 800px)": {
+      textAlign: "left",
+    },
   },
   contactInfo: {
     fontSize: "12px",
     color: "#7A7A7A",
     textAlign: "center",
+    "@media (min-width: 800px)": {
+      textAlign: "left",
+    },
   },
   irsText: {
     fontSize: "12px",
     color: "#7A7A7A",
     textAlign: "center",
+    "@media (min-width: 800px)": {
+      textAlign: "left",
+    },
   },
 });
 

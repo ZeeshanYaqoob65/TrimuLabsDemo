@@ -17,8 +17,8 @@ const useStyles = makeStyles({
     height: "100%",
   },
   image: {
-    width: "230px",
-    height: "40px",
+   
+    height: "30px",
   },
   link: {
     fontFamily: "Inter",
@@ -27,7 +27,11 @@ const useStyles = makeStyles({
     fontSize: "12px",
     lineHeight: "14px",
     color: "#FFFF",
-    textDecoration:'none'
+    textDecoration:'none',
+    "&:hover": {
+      backgroundColor: "#ffc52f",
+      color:'white'
+    },
   },
   text: {
     fontFamily: "Inter",
@@ -36,7 +40,7 @@ const useStyles = makeStyles({
     fontSize: "8px",
     lineHeight: "14px",
     color: "#FFFF",
-    textTransform: "uppercase",
+   
     opacity: 0.7,
   },
   footerContent: {
