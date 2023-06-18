@@ -14,6 +14,7 @@ import CloseIcon from "@mui/icons-material/Close";
 const useStyles = makeStyles({
   container: {
     padding: "10px",
+    overflowY: "scroll",
   },
   modalContainer: {
     display: "flex",
@@ -32,8 +33,6 @@ const useStyles = makeStyles({
   },
   input: {
     width: "100%",
-    marginTop: "10px !important",
-    marginBottom: 10,
   },
   button: {
     marginTop: "20px !important",
@@ -45,16 +44,16 @@ const useStyles = makeStyles({
   },
   text: {
     fontWeight: "bold",
-    color: "#384885",
+    color: "#0a2163",
     fontSize: "15px",
   },
   textBold: {
-    fontSize: "22px",
+    fontSize: "24px",
     fontWeight: "bold",
   },
   priceContainer: {
     width: "100%",
-    backgroundColor: "#384885",
+    backgroundColor: "#0a2163",
     minHeight: "40px",
     margin: "10px 0px",
     borderRadius: "10px",
@@ -82,7 +81,7 @@ const useStyles = makeStyles({
     fontStyle: "normal",
     fontWeight: 400,
     fontSize: "14px",
-    color: "#888888",
+    color: "#7A7A7A",
     lineHeight: "20px",
     textAlign: "justify",
     marginBottom: "10px",
@@ -155,7 +154,7 @@ const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
         <div className={classes.textBold}>raise 'Now At' total:</div>
 
         <TextField
-          label="Enter Amount"
+          label=""
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -195,10 +194,9 @@ const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
         </Button>
         <div className={classes.paypal}>
           <div className={classes.text}>Going to</div>
-          <div>
-            {" "}
-            <img src={paypal} alt="Modal Image" className={classes.paypalImg} />
-          </div>
+
+          <img src={paypal} alt={paypal} className={classes.paypalImg} />
+
           <div className={classes.text}>enter donation there</div>
         </div>
         <div className={classes.paypalText}>

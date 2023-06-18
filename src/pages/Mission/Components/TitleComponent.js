@@ -59,7 +59,10 @@ export default function TitleComponent({
   const received = new Intl.NumberFormat().format(received_amount);
   const handleShareClick = () => {};
   const handleClick = () => {
-    window.location.href = "https://www.youtube.com/watch?v=cv8Ee15MsNw";
+    const urls ="https://www.youtube.com/watch?v=cv8Ee15MsNw"
+    window.open(urls, "_blank");
+
+ 
   };
 
   return (

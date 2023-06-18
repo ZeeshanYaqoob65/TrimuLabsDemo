@@ -142,10 +142,12 @@ export default function TitleWeb({
   const goal = new Intl.NumberFormat().format(goal_amount);
   const received = new Intl.NumberFormat().format(received_amount);
   const handleShareClick = () => {
-    window.location.href = missionUrl;
+    const share = missionUrl
+    window.open(share, "_blank");
   };
   const handleClick = () => {
-    window.location.href = "https://www.youtube.com/watch?v=cv8Ee15MsNw";
+    const urls ="https://www.youtube.com/watch?v=cv8Ee15MsNw"
+    window.open(urls, "_blank");
   };
 
   const handleFacebookShare = () => {

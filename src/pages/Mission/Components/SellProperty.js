@@ -32,14 +32,21 @@ const SellProperty = ({ imageUrl, title, url }) => {
   const classes = useStyles();
 
   const handleClick = () => {
-    window.location.href = url;
+    const ytlink = url;
+    window.open(ytlink, "_blank");
   };
 
   return (
     <div className={classes.container}>
       <img src={imageUrl} alt="Property" className={classes.image} />
       <div className={classes.title}>{title}</div>
-      <a href={url} target="_blank" rel="noopener noreferrer" className={classes.link} onClick={handleClick}></a>
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes.link}
+        onClick={handleClick}
+      ></a>
     </div>
   );
 };

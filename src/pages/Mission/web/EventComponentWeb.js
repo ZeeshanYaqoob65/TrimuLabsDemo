@@ -8,6 +8,7 @@ const useStyles = makeStyles({
   container: {
     display: "flex",
     background: "#F1F1F3",
+
     "@media (min-width: 800px)": {
       flexDirection: "column",
       justifyContent: "center",
@@ -16,15 +17,15 @@ const useStyles = makeStyles({
       borderRadius: "10px",
       overflow: "hidden",
       position: "relative",
-      width:"250px !important",
-    
-
-    
+      width: "250px !important",
     },
   },
   image: {
     width: "149px",
     height: "149px",
+    "&:hover": {
+      cursor: "pointer",
+    },
     "@media (min-width: 800px)": {
       width: "100%",
       height: "100%",
@@ -37,6 +38,9 @@ const useStyles = makeStyles({
     transform: "translate(-50%, -50%)",
     width: "70px",
     height: "70px",
+      "&:hover": {
+      cursor: "pointer",
+    },
   },
   eventName: {
     fontSize: "16px",
@@ -44,16 +48,23 @@ const useStyles = makeStyles({
     marginBottom: "20px",
     lineHeight: "20px",
     color: "#000000",
+  
   },
   eventDate: {
     fontSize: "16px",
     fontWeight: 500,
     lineHeight: "20px",
+    color: "black",
+    opacity: "0.6",
+    textTransform: "uppercase",
   },
   eventTime: {
     fontSize: "16px",
     marginBottom: "8px",
     lineHeight: "20px",
+    color: "black",
+    opacity: "0.6",
+   
   },
   liveButton: {
     fontSize: "20px",
@@ -64,7 +75,7 @@ const useStyles = makeStyles({
     border: "none",
     borderRadius: "10px",
     cursor: "pointer",
-    backgroundColor: "#E22432",
+    backgroundColor: "#FF0000",
     "@media (min-width: 800px)": {
       display: "none",
     },
@@ -125,9 +136,8 @@ const EventComponentWeb = ({
   eventEndTime,
   missionImage,
   missionUrl,
-  index
+  index,
 }) => {
-    console.log(missionUrl)
   const [isBetweenTimeRange, setIsBetweenTimeRange] = useState(false);
   useEffect(() => {
     const checkTimeRange = () => {
@@ -172,11 +182,6 @@ const EventComponentWeb = ({
   const option = { hour: "numeric", minute: "2-digit", hour12: true };
   const STARTTIME = STARTtiME.toLocaleTimeString("en-US", option);
 
-  const isLiveEvent =
-    eventDate === formattedCurrentDate &&
-    currentDate >= new Date(formattedCurrentDate + "T" + eventStartTime) &&
-    currentDate <= new Date(formattedCurrentDate + "T" + eventEndTime);
-
   const renderIcon = () => {
     if (eventType === 0) {
       return <img src={youtube} alt="YouTube Icon" className={classes.icon} />;
@@ -187,16 +192,24 @@ const EventComponentWeb = ({
     }
   };
   const handleImgClick = () => {
-    window.location.href = missionUrl;
+    const ytlink = missionUrl;
+    window.open(ytlink, "_blank");
   };
-  const handleClick=()=>{
-    window.location.href=missionUrl;
-  }
+  const handleClick = () => {
+    const ytlink = missionUrl;
+    window.open(ytlink, "_blank");
+  };
 
   return (
     <div className={classes.container} key={index}>
       {isBetweenTimeRange && (
-        <div className={classes.buttonWebLive}  role="button" onClick={handleClick}>LIVE ONLINE</div>
+        <div
+          className={classes.buttonWebLive}
+          role="button"
+          onClick={handleClick}
+        >
+          LIVE ONLINE
+        </div>
       )}
 
       <div className={classes.background} onClick={handleImgClick}>
