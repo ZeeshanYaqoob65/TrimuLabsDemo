@@ -8,19 +8,36 @@ const useStyles = makeStyles({
     color: "#464646",
     overflow: "hidden",
     display: "-webkit-box",
+
     "-webkit-line-clamp": (props) =>
       props.showLessButton ? "none" : `${props.lineLimit}`, // Adjust the number of lines to show
     "-webkit-box-orient": "vertical",
+    "@media (min-width: 800px)": {
+      color: "black !important",
+      fontSize: 14,
+      padding: "0px !important",
+    },
   },
   readMoreButton: {
     fontSize: "14px",
     color: "#48C7F4",
+    "@media (min-width: 800px)": {
+
+      padding: "0px !important",
+      margin:"0px !important"
+    },
   },
   ButtonContainer: {
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
     marginRight: "20px",
+      "@media (min-width: 800px)": {
+      padding: "0px !important",
+      margin:"0px !important",
+    
+    },
+
   },
   icon: {
     marginTop: "5px",
@@ -31,6 +48,12 @@ const useStyles = makeStyles({
   ParagraphStyle: {
     padding: "0px 20px 0px 20px",
     textAlign: "justify",
+    "@media (min-width: 800px)": {
+      color: "black !important",
+      fontSize: 14,
+      padding: "0px !important",
+    
+    },
   },
   downArrow: {
     fontSize: "12px",
