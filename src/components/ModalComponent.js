@@ -5,10 +5,11 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import logo from "../assests/images/seed_for_me.png";
 import paypal from "../assests/images/paypal_h.png";
-import closeIcon from "../assests/images/close_btn.png";
+// import closeIcon from "../assests/images/close_btn.png";
 import InputAdornment from "@mui/material/InputAdornment";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import { useParams } from "react-router-dom";
+import CloseIcon from "@mui/icons-material/Close";
 
 const useStyles = makeStyles({
   container: {
@@ -100,7 +101,6 @@ const useStyles = makeStyles({
 });
 
 const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
- 
   const classes = useStyles();
   const [amount, setAmount] = useState("");
   const [name, setName] = useState("");
@@ -143,11 +143,10 @@ const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
     <Modal open={open} onClose={onClose} className={classes.container}>
       <div className={classes.modalContainer}>
         <div className={classes.close}>
-          <img
-            src={closeIcon}
-            alt="Modal Image"
+          <CloseIcon
             className={classes.closeImg}
             onClick={onClose}
+            sx={{ color: "#ff0000", fontWeight: "bold" }}
           />
         </div>
         <img src={logo} alt="Modal Image" className={classes.image} />
@@ -160,7 +159,7 @@ const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <AttachMoneyIcon sx={{color:"black"}} />
+                <AttachMoneyIcon sx={{ color: "black" }} />
               </InputAdornment>
             ),
           }}
