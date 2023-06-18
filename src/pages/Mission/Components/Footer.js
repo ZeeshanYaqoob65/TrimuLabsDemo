@@ -12,6 +12,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     textAlign: "center",
     padding: "20px",
+    gap:20,
 
     backgroundColor: "#3d3d3d",
     minHeight: 188,
