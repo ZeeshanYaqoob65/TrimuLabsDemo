@@ -45,7 +45,6 @@ const useStyles = makeStyles({
     "@media (min-width: 800px)": {
       marginBottom: "10px",
     },
-
   },
   description: {
     fontSize: "14px",
@@ -53,11 +52,10 @@ const useStyles = makeStyles({
     fontWeight: 400,
     marginBottom: "10px",
   },
-  ameen:{
+  ameen: {
     "@media (min-width: 800px)": {
-     fontSize:"10px",
-     textTransform:"uppercase",
-
+      fontSize: "10px",
+      textTransform: "uppercase",
     },
   },
   button: {
@@ -73,10 +71,13 @@ const useStyles = makeStyles({
     border: "none",
     "@media (min-width: 800px)": {
       flexDirection: "column",
-      width: "182px",
-      height: "182px",
+      width: (props) =>
+        props.prayerButtonWidth ? props.prayerButtonWidth : "182px",
+      height: (props) =>
+        props.prayerButtonWidth ? props.prayerButtonWidth : "182px",
       justifyContent: "center",
       fontWeight: "normal",
+      padding: "8px 8px 8px 8px",
     },
   },
   icon: {
@@ -95,10 +96,9 @@ const useStyles = makeStyles({
   },
 });
 
-const RequestPrayer = ({ index, Prayer }) => {
-  const classes = useStyles();
+const RequestPrayer = ({ index, Prayer, prayerButtonWidth }) => {
+  const classes = useStyles({ prayerButtonWidth });
 
-  
   return (
     <div className={classes.wrapper} key={index}>
       <div className={classes.container}>

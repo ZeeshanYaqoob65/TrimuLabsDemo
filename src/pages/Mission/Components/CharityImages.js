@@ -18,13 +18,20 @@ const useStyles = makeStyles({
     "&::-webkit-scrollbar": {
       display: "none" /* Chrome, Safari, and Opera */,
     },
+    "@media (min-width: 800px)": {
+      padding: "0px !important",
+    },
   },
   slide: {
     flexShrink: 0,
     width: "305px",
     height: "305px",
     marginRight: "11px",
-    
+    "@media (min-width: 800px)": {
+      width: (props) => (props.webImagesWidth ? props.webImagesWidth : "305px"),
+      height: (props) =>
+        props.webImagesWidth ? props.webImagesWidth : "305px",
+    },
   },
   slideLastChild: {
     marginRight: "0",
@@ -37,8 +44,8 @@ const useStyles = makeStyles({
   },
 });
 
-const CharityImages = ({ id, imageUrls }) => {
-  const classes = useStyles();
+const CharityImages = ({ id, imageUrls, webImagesWidth }) => {
+  const classes = useStyles({ webImagesWidth });
 
   return (
     <div className={classes.sliderContainer}>

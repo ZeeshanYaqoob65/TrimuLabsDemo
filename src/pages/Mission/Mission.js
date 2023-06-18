@@ -48,8 +48,9 @@ export default function Mission() {
 
   const dividedByTwo = screenWidth / 2;
   const leftWidth = screenWidth - 400;
-
+  const webImagesWidth = (leftWidth /3) -10;
   const classes = useStyles({ dividedByTwo, leftWidth });
+  const prayerButtonWidth =screenWidth/10;
 
   const [missionData, setMissionData] = useState();
   const [missionEvent, setMissionEvent] = useState([]);
@@ -232,7 +233,7 @@ export default function Mission() {
                 </div>
                 {eventImages.length > 0 && (
                   <>
-                    <CharityImages imageUrls={eventImages} />
+                    <CharityImages imageUrls={eventImages} webImagesWidth={webImagesWidth} />
                   </>
                 )}
                 {!missionPrayer.length <= 0 && (
@@ -241,8 +242,10 @@ export default function Mission() {
                       <>
                         {mission.prayer_text !== null ? (
                           <RequestPrayer
+                          
                             index={index}
                             Prayer={mission.prayer_text}
+                            prayerButtonWidth={prayerButtonWidth}
                           />
                         ) : null}
                       </>
