@@ -58,6 +58,7 @@ export default function Mission() {
   const [missionPrayer, setMissionPrayer] = useState([]);
   const [StateDisclosures, setStateDiscloures] = useState([]);
 
+
   const getCharityGraph = (charityName) => {
     const data = `Financial info and charitable purpose, programs, and activities is either above, or can be obtained by contacting ${charityName}, and or as stated below.\n\nDonations go direct to ${charityName} via PayPal preferenced for missionary or minister (worker’s role and budget with charity). SeedForMe does not receive donation money or fees from PayPal. Preferencing support for worker is secondary to gifts use by the charity. Worker’s mission or ministry is to be conducted under direction of the charity and its board approves worker’s budget`;
     return data;
@@ -70,12 +71,13 @@ export default function Mission() {
           `https://seedapis.seedforme.com/api/v1/mission/${id}`
         );
         const data = await response.json();
-        console.log(data);
+      
         setMissionData(data.data);
         setMissionEvent(data.data.mission_events);
         setEventImages(data.data.gallery);
         setMissionPrayer(data.data.mission_prayers);
         setStateDiscloures(data.data.state_disclosure);
+
       } catch (error) {
         console.error("Error fetching mission data:", error);
       }
@@ -208,6 +210,7 @@ export default function Mission() {
                 eventEndTime={missionEvent[0].end_time}
                 eventStartTime={missionEvent[0].start_time}
                 missionUrl={missionEvent[0].url}
+                payment_keys={missionData.mission.payment_keys}
               />
             </div>
             <div className={classes.mainContainer}>

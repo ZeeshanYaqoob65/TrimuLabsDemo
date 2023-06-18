@@ -100,6 +100,7 @@ const useStyles = makeStyles({
 });
 
 const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
+ 
   const classes = useStyles();
   const [amount, setAmount] = useState("");
   const [name, setName] = useState("");
@@ -130,9 +131,6 @@ const ModalComponent = ({ open, onClose, received, total, payment_keys }) => {
       const response = await fetch(url, requestOptions);
       const data = await response.json();
 
-      if (data) {
-        console.log("response for api", data);
-      }
       window.open(payment_keys, "_blank");
 
       onClose();

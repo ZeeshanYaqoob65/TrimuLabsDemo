@@ -90,6 +90,7 @@ export default function TitleWeb({
   eventStartTime,
   eventEndTime,
   missionUrl,
+  payment_keys
 }) {
   const [isBetweenTimeRange, setIsBetweenTimeRange] = useState(false);
 
@@ -187,6 +188,7 @@ export default function TitleWeb({
         onClose={handleClose}
         total={goal_amount}
         received={received_amount}
+        payment_keys={payment_keys}
       />
       <Container className={classes.container}>
         <div className={classes.share}>
