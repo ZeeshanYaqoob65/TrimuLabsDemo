@@ -20,10 +20,11 @@ const useStyles = makeStyles({
     objectFit: "contain",
   },
   navContainer: {
-    position: "sticky",
-    top: 0,
+  position:"absolute",
+    top: 30,
     left: 0,
     paddingLeft: 40,
+    zIndex:4,
  
   },
  
@@ -33,21 +34,21 @@ const NavbarComponent = () => {
   const classes = useStyles();
 
   return (
-    <Navbar
+    <div
       className={classes.navContainer}
-      style={{ backgroundColor: "#edbe49", position: "sticky", zIndex: 4 }}
+    
     >
-      <Navbar.Brand >
+      <div>
         <img
           src={logo}
           width={160}
           height={30}
        
-          className={classes.navbarstyle}
+          className={classes.divstyle}
           alt="React Bootstrap logo"
         />
-      </Navbar.Brand>
-    </Navbar>
+      </div>
+    </div>
   );
 };
 

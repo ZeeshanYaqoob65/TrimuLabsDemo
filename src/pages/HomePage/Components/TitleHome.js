@@ -16,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width:'100%'
+    width:'100%',
+    fontFamily:"Inter",
+    fontWeight:"bold"
   }
 }));
 
@@ -26,7 +28,7 @@ const TitleHome = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.titleConatiner}>
-        Emails & Text with your great Purpose
+        Email & Text with your great Purpose
       </div>
     </div>
   );

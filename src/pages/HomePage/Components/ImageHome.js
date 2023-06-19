@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import homeImg from "../../../assests/images/home_title_img.jpg";
+import homeImg from "../../../assests/images/seed.jpg";
 import Button from "@mui/material/Button";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "black",
     left: 0,
     top: 0,
-    opacity: "0.3",
+    opacity:0.3,
     zIndex: 2,
   },
   textOverlay: {
@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
     left: 50,
     color: "white",
     zIndex: 3,
+    "@media (max-width: 800px)": {
+      bottom: 10,
+      left: 10,
+    },
   },
   textContainer: {
     display: "flex",
@@ -38,7 +42,9 @@ const useStyles = makeStyles((theme) => ({
   text: {
     fontSize: 54,
     color: "#FFFF",
+    fontFamily: "Montserrat !important",
     lineHeight: "60px",
+    fontWeight: 400,
 
     "@media (max-width: 800px)": {
       fontSize: 34,

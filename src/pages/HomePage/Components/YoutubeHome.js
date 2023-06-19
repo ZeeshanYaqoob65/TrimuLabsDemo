@@ -1,5 +1,5 @@
 import React from "react";
-import youtubeLOgo from "../../../assests/images/youtube_img.png";
+import Next from "../../../assests/images/YtThumbNail.jpg";
 
 const YoutubeHome = () => {
   const handleClick = () => {
@@ -8,29 +8,16 @@ const YoutubeHome = () => {
   };
 
   return (
-    <div style={{ margin: "0 auto", width: "fit-content" }}>
+    <div style={{ margin: "0 auto", width: "100%" }}>
       <div style={{ position: "relative" }}>
         <img
-          src="https://img.youtube.com/vi/nzWh_KqD2AE/0.jpg"
+          src={Next}
           alt="Home Image"
           onClick={handleClick}
           width={"100%"}
           style={{ objectFit: "cover" }}
         />
-        <div>
-          <img
-            src={youtubeLOgo} // Replace with the actual YouTube logo image URL
-            alt="YouTube Logo"
-            onClick={handleClick}
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: 100,
-            }}
-          />
-        </div>
+      
       </div>
     </div>
   );

@@ -6,18 +6,15 @@ import Divider from "../../../components/Divider";
 
 const useStyles = makeStyles({
   footer: {
-    marginTop: "20px",
     display: "flex",
     flexDirection: "column",
     padding: "10px",
     textAlign: "center",
-
     backgroundColor: "#3d3d3d",
     minHeight: 188,
     height: "100%",
   },
   image: {
-   
     height: "30px",
   },
   link: {
@@ -27,10 +24,10 @@ const useStyles = makeStyles({
     fontSize: "12px",
     lineHeight: "14px",
     color: "#FFFF",
-    textDecoration:'none',
+    textDecoration: "none",
     "&:hover": {
       backgroundColor: "#ffc52f",
-      color:'white'
+      color: "white",
     },
   },
   text: {
@@ -40,13 +37,12 @@ const useStyles = makeStyles({
     fontSize: "8px",
     lineHeight: "14px",
     color: "#FFFF",
-   
+
     opacity: 0.7,
   },
   footerContent: {
     display: "flex",
     flexDirection: "column",
-
     alignItems: "center",
   },
   FooterWeb: {
