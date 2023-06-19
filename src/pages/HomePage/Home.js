@@ -8,6 +8,7 @@ import DiscriptionHome from "./Components/DiscriptionHome";
 import FooterWeb from "../Mission/web/FooterWeb";
 import { HomeText, HomeText2 } from "./utils";
 import YoutubeHome from "./Components/YoutubeHome";
+import FooterHome from "../Mission/web/FooterHome";
 
 const useStyles = makeStyles({
   container: {
@@ -33,13 +34,18 @@ const Home = () => {
     <>
       <NavbarComponent />
       <ImageHome />
-      <TitleHome />
+
+      <div style={{ marginTop: 50 }}>
+        <TitleHome />
+      </div>
+
       <DiscriptionHome text={HomeText} />
       <DiscriptionHome text={HomeText2} />
+
       <div style={{ marginTop: 20 }}>
         <YoutubeHome />
       </div>
-      <FooterWeb />
+      <FooterHome />
     </>
   );
 };

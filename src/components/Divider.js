@@ -3,8 +3,13 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   divider: {
-    opacity: 0.1,
-    border: "1px solid #000000",
+    border: "1px solid #414141",
+    width: "100%",
+    paddingLeft:'20px',
+    paddingRight:'20px',
+    height:'3px'
+  
+
   },
 });
 

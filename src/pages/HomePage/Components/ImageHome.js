@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import homeImg from "../../../assests/images/seed.jpg";
+import appImg from "../../../assests/images/download_appstore_img.png";
 import Button from "@mui/material/Button";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,23 +22,27 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "black",
     left: 0,
     top: 0,
-    opacity:0.3,
+    opacity: 0.3,
     zIndex: 2,
   },
   textOverlay: {
     position: "absolute",
-    bottom: 50,
-    left: 50,
+    bottom: 300,
+    left: 210,
     color: "white",
     zIndex: 3,
     "@media (max-width: 800px)": {
       bottom: 10,
-      left: 10,
+      left: 30,
     },
   },
   textContainer: {
     display: "flex",
     flexDirection: "column",
+  },
+  image2: {
+    marginTop: "5px",
+    width: "120px",
   },
   text: {
     fontSize: 54,
@@ -74,19 +79,7 @@ const ImageHome = () => {
         <div className={classes.textContainer}>
           <div className={classes.text}>Missions</div>
           <div className={classes.text}>Made Easy</div>
-          <Button
-            variant="contained"
-            className={classes.buttonstyle}
-            sx={{
-              background: "#edbe49",
-              width: 145,
-              marginTop: "2px",
-              textTransform: "capitalize",
-            }}
-            onClick={handleClick}
-          >
-            Login / Signup
-          </Button>
+          <img src={appImg} alt="Your Image" className={classes.image2} />
         </div>
       </div>
     </div>

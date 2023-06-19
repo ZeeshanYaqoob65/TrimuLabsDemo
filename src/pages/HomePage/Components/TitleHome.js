@@ -4,22 +4,22 @@ import homeImg from "../../../assests/images/home_title_img.jpg";
 import Button from "../../../components/Button";
 const useStyles = makeStyles((theme) => ({
   titleConatiner: {
-    maxWidth: "300px",
+    maxWidth: "350px",
     fontSize: "22px",
     fontWeight: 700,
-    textAlign:'center',
-    textTransform:"uppercase"
-
+    textAlign: "center",
+    textTransform: "uppercase",
   },
-  wrapper:{
-    marginTop:20,
+  wrapper: {
+    marginTop: 20,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width:'100%',
-    fontFamily:"Inter",
-    fontWeight:"bold"
-  }
+    width: "100%",
+    fontWeight: 700,
+    fontFamily: "Montserrat",
+  
+  },
 }));
 
 const TitleHome = () => {
@@ -28,7 +28,7 @@ const TitleHome = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.titleConatiner}>
-        Email & Text with your great Purpose
+        EMAIL & TEXT WITH YOUR GREATER PURPOSE!
       </div>
     </div>
   );
